@@ -10,11 +10,27 @@
     <link rel="stylesheet" href="~/WebShopApp.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <!-- Navigation-->
+    <partial name="_Navigation" />
     
-    @RenderBody()
-     
+    <!-- Header-->
+    <partial name="_Header" />
+
+    <!-- Section-->
+    <section class="py-5">
+        @RenderBody()
+    </section>
+
+    <!-- Footer-->
+    <partial name="_Footer" />
+
+
+
     <script src="~/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+bootstrap.build /app
