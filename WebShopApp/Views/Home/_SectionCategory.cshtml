@@ -1,0 +1,30 @@
+﻿@{
+
+    var testresults = new List<CategoryViewModel>();
+
+    for (int i = 0; i < 7; i++)
+    {
+        testresults.Add(new CategoryViewModel() { Id = i, Name = "Category "+ i, ProductCount = new Random().Next(0, 999) });
+    }
+}
+<div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-3 row-cols-3 justify-content-center">
+        @foreach (var category in testresults)
+        {
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+    
+                        <!-- Product actions-->
+                    <div class="card-footer p-0 m-0 border-top-0 bg-transparent">
+                        <div class="border w-50">
+                            <h5>@category.Name</h5>
+                            <h6><small>@category.ProductCount.ToString() product(s)</small></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
