@@ -1,12 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebShopApp.Services;
 
 namespace WebShopApp.Controllers
 {
     public class ShopPageController : Controller
     {
-        public IActionResult Index()
+        private readonly IProductService _service;
+
+        public ShopPageController(IProductService service)
         {
-            return View();
+            _service = service;
         }
+
+        public async Task<IActionResult> Index()
+        {
+            return View(ViewBag.Products = await _service.GetProducts());
+        }
+
     }
 }

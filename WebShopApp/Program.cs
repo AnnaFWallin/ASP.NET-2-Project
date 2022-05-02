@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebShopApp.Data;
+using WebShopApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,13 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddScoped<IProductService, ProductService>();
+//MockDB
+builder.Services.AddDbContext<ProductsDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("LocalProductsDB")));
+
+
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
