@@ -1,35 +1,85 @@
 ﻿@model IEnumerable<ProductModel>
+<partial name="_NewCustomerBanner" />
+<div style="padding-left:9em; padding-right:17em; padding-bottom: 30em">
+    <div class="col-3 col-3 col-2 sidebar p-5" style="float:left;">
+        <div class="ps-5">
+            <span style="font-weight: bold; font-size: large; color: #20D3C2;">Shop</span><br>
+            <a style="font-size: small; text-decoration: none; color: black;" href="#">Home</a> / <a style="font-size: small; text-decoration: none; color: black;" href="#">Shop</a>
+            <div class="pt-5">
+                <span style="font-weight: bold; font-size: smaller; color: #20D3C2;">Product Categories</span><br>
+                <a style="font-size: small; text-decoration: none; color: black;" href="#">Men's</a> <br>
+                <a style="font-size: small; text-decoration: none; color: black;" href="#">Women's</a>   <br>
+                <a style="font-size: small; text-decoration: none; color: black;" href="#">Kids</a> <br>
+                <a style="font-size: small; text-decoration: none; color: black;" href="#">Hats</a> <br>
+                <a style="font-size: small; text-decoration: none; color: black;" href="#">Sunglasses</a><br>
+                <a style="font-size: small; text-decoration: none; color: black;" href="#">Shoes</a><br>
+                <a style="font-size: small; text-decoration: none; color: black;" href="#">Watches</a>  <br>
+            </div>
+            <div class="pt-3">
+                <span style="font-weight: bold; font-size: smaller; color: #20D3C2;">Filter by Price</span><br>
+                <input type="range" class="form-range" min="0" max="5000" id="customRange2">
+            </div>
+            <div class="pt-3">
+                <span style="font-weight: bold; font-size: smaller; color: #20D3C2;">Filter by Color</span><br>
+                <span class="small"><div style="width:12px;height:12px;background-color:black;display:inline-flex;border-radius:20%"></div> Black</span><br />
+                <span class="small"><div style="width:12px;height:12px;background-color:gray;display:inline-flex;border-radius:20%"></div> Gray</span><br />
+                <span class="small"><div style="width:12px;height:12px;background-color:red;display:inline-flex;border-radius:20%"></div> Red</span><br />
+                <span class="small"><div style="width:12px;height:12px;background-color:green;display:inline-flex;border-radius:20%"></div> Green</span><br />
+                <span class="small"><div style="width:12px;height:12px;background-color:orange;display:inline-flex;border-radius:20%"></div> Orange</span><br />
+                <span class="small"><div style="width:12px;height:12px;background-color:brown;display:inline-flex;border-radius:20%"></div> Brown</span>
 
-                <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-4 justify-content-center">
+            </div>
+            <div class="pt-3">
+            <span style="font-weight: bold; font-size: smaller; color: #20D3C2;">Filter by Size</span><br>
+            <span class="small">XS</span><br />
+            <span class="small">S</span><br />
+            <span class="small">M</span><br />
+            <span class="small">L</span><br />
+            <span class="small">XL</span><br />
+            <span class="small">XXL</span><br />
 
-@foreach (var item in ViewBag.Products)
-{
-    <div class="container px-4 px-lg-5 mt-5">
-     <div class="col mb-5">
-        <div class="card h-100">
-            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-             <h5 class="fw-bolder">@item.Name</h5>
-                                        <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                   <span class="text-muted">@item.Color</span>
-                                                               <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-
-
-
-</div>
-</div>
+            </div>
+            <div class="pt-3">
+            <span style="font-weight: bold; font-size: smaller; color: #20D3C2;">Filter by Brand</span><br>
+            <img src="images/Skärmbild 2022-05-02 155459.png" style="width:90%; padding-top:0.5em" />
+        </div>
+            <div class="pt-3">
+            <span style="font-weight: bold; font-size: smaller; color: #20D3C2;">Product Status</span><br>
+            <div class="pt-1">
+            <input type="checkbox"> <span>On Sale</span><br />
+            <input type="checkbox"> <span>In Stock </span><br />
+            </div>
+        </div>
     </div>
+</div>
 
-}
-</div></div>
+<div class="container px-4 px-lg-5 mt-5">
+    <div class="row row-cols-2 row-cols-4 justify-content-center pb-5">
 
+        @foreach (var item in ViewBag.Products)
+        {
+            <div class="container px-2 px-3 mt-2" style="width: 18rem;">
+                <div class="col mb-3">
+                    <div class="card">
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <h5 class="fw-bolder p-2">@item.Name</h5>
+                        <span class="p-2">@item.Category</span>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-  
+        }
+    </div>
+            <div class="ps-5" style="margin-left:5em">
+                <div style="margin-left:10em">
+            <span class="text-uppercase" style="font-size:xx-large; font-weight:700">Subscribe </span><span class="text-uppercase" style="color: #20D3C2; font-size:xx-large; font-weight:700">now</span><br />
+            <span style="font-size: smaller">Signup for awesome news about our new<br />
+            products and know our special discounts on products</span></div>
+            </div>
+</div>
+<div></div>
+</div>
+
