@@ -23,7 +23,7 @@ namespace WebShopApp.Services
         public async Task<IEnumerable<ProductModel>> GetProducts()
         {
             var products = new List<ProductModel>();
-            foreach (var product in await _context.Products.ToListAsync())
+            foreach (var product in await _context.Products.Include(x => x.Brand).Include(x => x.Category).ToListAsync())
             {
                 products.Add(new ProductModel(
                     product.Id,
@@ -34,9 +34,9 @@ namespace WebShopApp.Services
                     product.Size,
                     product.Amount,
                     product.OnSale,
-                    product.ImgUrl
-                    //new BrandModel(product.Brand.Name),
-                    //new CategoryModel(product.Category.Name)
+                    product.ImgUrl,
+                    new BrandModel(product.Brand.Name),
+                    new CategoryModel(product.Category.Name)
                     ));
             }
             return products;
@@ -44,7 +44,7 @@ namespace WebShopApp.Services
 
         public async Task<ProductModel> GetProductById(int id)
         {
-            var productEntity = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
+            var productEntity = await _context.Products.Include(x => x.Brand).Include(x => x.Category).FirstOrDefaultAsync(x => x.Id == id);
 
             return new ProductModel(
                     productEntity.Id,
@@ -55,9 +55,9 @@ namespace WebShopApp.Services
                     productEntity.Size,
                     productEntity.Amount,
                     productEntity.OnSale,
-                    productEntity.ImgUrl
-                //new BrandModel(productEntity.Brand.Name),
-                //new CategoryModel(productEntity.Category.Name)
+                    productEntity.ImgUrl,
+                    new BrandModel(productEntity.Brand.Name),
+                    new CategoryModel(productEntity.Category.Name)
                 );
 
         }
