@@ -1,11 +1,14 @@
-﻿<footer style="background-color:#0E153D; padding-left:18em; padding-right:18em;" class="text-white pt-5">
+﻿
+<link rel="stylesheet" href="~/css/footer-style.css" />
+
+<footer class="footer text-white pt-5">
 
       <section>
         <div class="row">
           <div class="col-md">
-            <section class="text-start" style="width: 15em;">
-                <img src="images/Skärmbild 2022-04-28 150148.png" style="width:10em;">
-                <p class="small" style="font-size: 0.7rem;"><br><br>
+            <section class="text-start logo-area">
+                <img class="logo" src="images/Skärmbild 2022-04-28 150148.png">
+                <p class="small lorem"><br><br>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
                   repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
                   eum harum corrupti dicta, aliquam sequi voluptate quas.
@@ -14,9 +17,9 @@
         
           </div>
           <div class="col-3 pb-5 px-5">
-            <h5 class="text-uppercase px-5 small" style="color:#20D3C2">Contact Info</h5>
-            <div class="small px-5" style="font-size: 0.7rem;">
-            <span style="color:#20D3C2; padding-bottom: 0px;">Address:</span><br>
+            <h5 class="text-uppercase px-5 small text-turquoise">Contact Info</h5>
+            <div class="small px-5 address">
+            <span class="text-turquoise">Address:</span><br>
                 Solna Business Park<br>
                 Feni-2500, Stockholm<br><br>
                 <span style="color:#20D3C2;">Phone:</span><br>
@@ -29,8 +32,8 @@
 
         </div>
           <div class="col-3">
-            <h5 class="text-uppercase small" style="color:#20D3C2">Useful links</h5>
-            <ul class="list-unstyled" style="font-size: 0.8rem;">
+            <h5 class="text-uppercase small text-turquoise">Useful links</h5>
+            <ul class="list-unstyled">
               <li class="pt-2">
                 <a asp-controller="ShopPage" asp-action="Index"  class="text-decoration-none text-white">Privacy Policy</a>
               </li>
@@ -52,15 +55,15 @@
             </ul>
           </div>
           <div class="col-3">
-            <h5 class="text-uppercase small" style="color:#20D3C2">Recent Instagram</h5>
-            <img src="images/Skärmbild 2022-04-28 155533.png" style="height:10em;">
+            <h5 class="text-uppercase small text-turquoise">Recent Instagram</h5>
+            <img class="instagram" src="images/Skärmbild 2022-04-28 155533.png">
           </div>
         </div>
       </section>
 
-    <div class="text-start" style="height:5em; width:100%; background: linear-gradient(90deg, rgba(14,21,61,1) 0%, rgba(8,12,36,1) 51%, rgba(14,21,61,1) 100%);">
-      <p style="float:left; padding-left:10em" class="pt-4 small">© 2020 Copyright:
-      <a class="text-white link-unstyled" style="text-decoration: none;" href="https://mdbootstrap.com/">KenKata</a></p>
-      <div class="text-end pt-4"><img style="padding-right:10em;height:2.5em; float: right;" src="images/Skärmbild 2022-04-28 152605.png"></div>
+    <div class="text-start copyright-banner">
+      <p class="pt-4 small copyright">© 2020 Copyright:
+      <a class="text-white link-unstyled kenkata-text" href="https://mdbootstrap.com/">KenKata</a></p>
+      <div class="text-end pt-4"><img class="payment" src="images/Skärmbild 2022-04-28 152605.png"></div>
     </div>   
   </footer>

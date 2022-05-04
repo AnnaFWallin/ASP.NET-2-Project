@@ -7,17 +7,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("SqlServer");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+builder.Services.AddDbContext<ApplicationIdDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddScoped<IProductService, ProductService>();
-//MockDB
-builder.Services.AddDbContext<ProductsDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("LocalProductsDB")));
-
 
 
 builder.Services.AddControllersWithViews();

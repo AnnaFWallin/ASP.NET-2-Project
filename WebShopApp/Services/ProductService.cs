@@ -12,9 +12,9 @@ namespace WebShopApp.Services
     }
     public class ProductService : IProductService
     {
-        private readonly ProductsDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public ProductService(ProductsDbContext context)
+        public ProductService(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -29,7 +29,15 @@ namespace WebShopApp.Services
                     product.Id,
                     product.Name,
                     product.Color,
-                    product.Category));
+                    product.PriceEUR,
+                    product.PriceUSD,
+                    product.Size,
+                    product.Amount,
+                    product.OnSale,
+                    product.ImgUrl
+                    //new BrandModel(product.Brand.Name),
+                    //new CategoryModel(product.Category.Name)
+                    ));
             }
             return products;
         }
@@ -39,10 +47,17 @@ namespace WebShopApp.Services
             var productEntity = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
 
             return new ProductModel(
-                productEntity.Id,
-                productEntity.Name,
-                productEntity.Color,
-                productEntity.Category
+                    productEntity.Id,
+                    productEntity.Name,
+                    productEntity.Color,
+                    productEntity.PriceEUR,
+                    productEntity.PriceUSD,
+                    productEntity.Size,
+                    productEntity.Amount,
+                    productEntity.OnSale,
+                    productEntity.ImgUrl
+                //new BrandModel(productEntity.Brand.Name),
+                //new CategoryModel(productEntity.Category.Name)
                 );
 
         }

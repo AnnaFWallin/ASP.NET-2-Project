@@ -1,36 +1,39 @@
 ﻿@model IEnumerable<ProductModel>
+<link rel="stylesheet" href="~/css/shop-page-style.css" />
+
+
 <partial name="_NewCustomerBanner" />
-<div style="padding-left:9em; padding-right:17em; padding-bottom: 30em">
-    <div class="col-3 col-3 col-2 sidebar p-5" style="float:left;">
+<div class="first-div">
+    <div class="sidebar col-3 col-3 col-2 p-5">
         <div class="ps-5">
-            <span style="font-weight: bold; font-size: large; color: #20D3C2;">Shop</span><br>
-            <a style="font-size: small; text-decoration: none; color: black;" href="#">Home</a> / <a style="font-size: small; text-decoration: none; color: black;" href="#">Shop</a>
+            <span class="categories text-turquoise">Shop</span><br>
+            <a class="nav-link" href="#">Home</a> / <a class="nav-link" href="#">Shop</a>
             <div class="pt-5">
-                <span style="font-weight: bold; font-size: smaller; color: #20D3C2;">Product Categories</span><br>
-                <a style="font-size: small; text-decoration: none; color: black;" href="#">Men's</a> <br>
-                <a style="font-size: small; text-decoration: none; color: black;" href="#">Women's</a>   <br>
-                <a style="font-size: small; text-decoration: none; color: black;" href="#">Kids</a> <br>
-                <a style="font-size: small; text-decoration: none; color: black;" href="#">Hats</a> <br>
-                <a style="font-size: small; text-decoration: none; color: black;" href="#">Sunglasses</a><br>
-                <a style="font-size: small; text-decoration: none; color: black;" href="#">Shoes</a><br>
-                <a style="font-size: small; text-decoration: none; color: black;" href="#">Watches</a>  <br>
+                <span class="categories text-turquoise">Product Categories</span><br>
+                <a class="category-links" href="#">Men's</a> <br>
+                <a class="category-links" href="#">Women's</a>   <br>
+                <a class="category-links" href="#">Kids</a> <br>
+                <a class="category-links" href="#">Hats</a> <br>
+                <a class="category-links" href="#">Sunglasses</a><br>
+                <a class="category-links" href="#">Shoes</a><br>
+                <a class="category-links" href="#">Watches</a>  <br>
             </div>
             <div class="pt-3">
-                <span style="font-weight: bold; font-size: smaller; color: #20D3C2;">Filter by Price</span><br>
+                <span class="categories text-turquoise">Filter by Price</span><br>
                 <input type="range" class="form-range" min="0" max="5000" id="customRange2">
             </div>
             <div class="pt-3">
-                <span style="font-weight: bold; font-size: smaller; color: #20D3C2;">Filter by Color</span><br>
-                <span class="small"><div style="width:12px;height:12px;background-color:black;display:inline-flex;border-radius:20%"></div> Black</span><br />
-                <span class="small"><div style="width:12px;height:12px;background-color:gray;display:inline-flex;border-radius:20%"></div> Gray</span><br />
-                <span class="small"><div style="width:12px;height:12px;background-color:red;display:inline-flex;border-radius:20%"></div> Red</span><br />
-                <span class="small"><div style="width:12px;height:12px;background-color:green;display:inline-flex;border-radius:20%"></div> Green</span><br />
-                <span class="small"><div style="width:12px;height:12px;background-color:orange;display:inline-flex;border-radius:20%"></div> Orange</span><br />
-                <span class="small"><div style="width:12px;height:12px;background-color:brown;display:inline-flex;border-radius:20%"></div> Brown</span>
+                <span class="categories text-turquoise">Filter by Color</span><br>
+                <span class="small"><div class="color-box" id="black"></div> Black</span><br />
+                <span class="small"><div class="color-box" id="gray"></div> Gray</span><br />
+                <span class="small"><div class="color-box" id="red"></div> Red</span><br />
+                <span class="small"><div class="color-box" id="green"></div> Green</span><br />
+                <span class="small"><div class="color-box" id="orange"></div> Orange</span><br />
+                <span class="small"><div class="color-box" id="brown"></div> Brown</span>
 
             </div>
             <div class="pt-3">
-            <span style="font-weight: bold; font-size: smaller; color: #20D3C2;">Filter by Size</span><br>
+            <span class="categories text-turquoise">Filter by Size</span><br>
             <span class="small">XS</span><br />
             <span class="small">S</span><br />
             <span class="small">M</span><br />
@@ -40,11 +43,11 @@
 
             </div>
             <div class="pt-3">
-            <span style="font-weight: bold; font-size: smaller; color: #20D3C2;">Filter by Brand</span><br>
-            <img src="images/Skärmbild 2022-05-02 155459.png" style="width:90%; padding-top:0.5em" />
+            <span class="categories text-turquoise">Filter by Brand</span><br>
+            <img class="brands" src="images/Skärmbild 2022-05-02 155459.png" />
         </div>
             <div class="pt-3">
-            <span style="font-weight: bold; font-size: smaller; color: #20D3C2;">Product Status</span><br>
+            <span class="categories text-turquoise">Product Status</span><br>
             <div class="pt-1">
             <input type="checkbox"> <span>On Sale</span><br />
             <input type="checkbox"> <span>In Stock </span><br />
@@ -58,7 +61,7 @@
 
         @foreach (var item in ViewBag.Products)
         {
-            <div class="container px-2 px-3 mt-2" style="width: 18rem;">
+            <div class="container px-2 px-3 mt-2 card-size">
                 <div class="col mb-3">
                     <div class="card">
                         <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
@@ -73,9 +76,9 @@
 
         }
     </div>
-            <div class="ps-5" style="margin-left:5em">
-                <div style="margin-left:10em">
-            <span class="text-uppercase" style="font-size:xx-large; font-weight:700">Subscribe </span><span class="text-uppercase" style="color: #20D3C2; font-size:xx-large; font-weight:700">now</span><br />
+            <div class="ps-5 subscribe-area">
+                <div>
+            <span class="text-uppercase subscribe">Subscribe </span><span class="text-uppercase" style="color: #20D3C2; font-size:xx-large; font-weight:700">now</span><br />
             <span style="font-size: smaller">Signup for awesome news about our new<br />
             products and know our special discounts on products</span></div>
             </div>
