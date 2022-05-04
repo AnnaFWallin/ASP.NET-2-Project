@@ -1,5 +1,66 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    var arrivaltestresult = new List<ArrivalViewModel>();
+    arrivaltestresult.Add(new ArrivalViewModel() { Id = 1, Name = "Titel 1 ", Price = 100, Category = "Men", DiscountPrice = 20 });
+    arrivaltestresult.Add(new ArrivalViewModel() { Id = 2, Name = "Titel 2 ", Price = 100, Category = "Women", DiscountPrice = 0 });
+    arrivaltestresult.Add(new ArrivalViewModel() { Id = 3, Name = "Titel 3 ", Price = 100, Category = "Hats", DiscountPrice = 20 });
+    arrivaltestresult.Add(new ArrivalViewModel() { Id = 4, Name = "Titel 4 ", Price = 100, Category = "Kids", DiscountPrice = 0 });
+    arrivaltestresult.Add(new ArrivalViewModel() { Id = 5, Name = "Titel 5 ", Price = 100, Category = "Watch", DiscountPrice = 20 });
+    arrivaltestresult.Add(new ArrivalViewModel() { Id = 6, Name = "Titel 6 ", Price = 100, Category = "Sunglasses", DiscountPrice = 20 });
+    arrivaltestresult.Add(new ArrivalViewModel() { Id = 7, Name = "Titel 7 ", Price = 100, Category = "Shoes", DiscountPrice = 0 });
+    //arrivaltestresult.Add(new ArrivalViewModel() { Id = 8, Name = "Titel 8 ", Price = 100, Category = "Shoes", DiscountPrice = 0 });
+    //arrivaltestresult.Add(new ArrivalViewModel() { Id = 9, Name = "Titel 8 ", Price = 100, Category = "Shoes", DiscountPrice = 0 });
 }
+
+<style>
+    .arrival-info:hover {
+        display: none;
+    }
+</style>
+
+<div class="container">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            @{
+                var first = true;
+            }
+
+            @for (var i = 0; i < arrivaltestresult.Count; i = i + 3)
+            {
+                <div class="carousel-item @(first ? "active" :"")">
+                    <div class="row">
+
+                        @for (var j = 0; j < 3 && i + j < arrivaltestresult.Count; j++)
+                        {
+                            <div class="col-sm-4">
+                                <img src="https://via.placeholder.com/350x150" class="d-block w-100" alt="...">
+                                <div class="arrival-info">
+                                    <h5>@arrivaltestresult[i+j].Name</h5>
+                                    <p>@arrivaltestresult[i+j].Category</p>
+                                    <p>@arrivaltestresult[i+j].Price</p>er
+                                    <p>@arrivaltestresult[i+j].DiscountPrice</p>
+                                </div>
+                            </div>
+
+                            first = false;
+                        }
+                    </div>
+                </div>
+            }
+
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
