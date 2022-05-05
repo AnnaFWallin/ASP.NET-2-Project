@@ -3,86 +3,100 @@
 
 
 <partial name="_NewCustomerBanner" />
-<div class="first-div">
-    <div class="sidebar col-3 col-3 col-2 p-5">
-        <div class="ps-5">
-            <span class="categories text-turquoise">Shop</span><br>
-            <a class="nav-link" href="#">Home</a> / <a class="nav-link" href="#">Shop</a>
-            <div class="pt-5">
-                <span class="categories text-turquoise">Product Categories</span><br>
-                <a class="category-links" href="#">Men's</a> <br>
-                <a class="category-links" href="#">Women's</a>   <br>
-                <a class="category-links" href="#">Kids</a> <br>
-                <a class="category-links" href="#">Hats</a> <br>
-                <a class="category-links" href="#">Sunglasses</a><br>
-                <a class="category-links" href="#">Shoes</a><br>
-                <a class="category-links" href="#">Watches</a>  <br>
-            </div>
-            <div class="pt-3">
-                <span class="categories text-turquoise">Filter by Price</span><br>
-                <input type="range" class="form-range" min="0" max="5000" id="customRange2">
-            </div>
-            <div class="pt-3">
-                <span class="categories text-turquoise">Filter by Color</span><br>
-                <span class="small"><div class="color-box" id="black"></div> Black</span><br />
-                <span class="small"><div class="color-box" id="gray"></div> Gray</span><br />
-                <span class="small"><div class="color-box" id="red"></div> Red</span><br />
-                <span class="small"><div class="color-box" id="green"></div> Green</span><br />
-                <span class="small"><div class="color-box" id="orange"></div> Orange</span><br />
-                <span class="small"><div class="color-box" id="brown"></div> Brown</span>
+<div class="spacing">
+    <div class="first-div">
+        <div class="sidebar col-3 col-3 col-2">
+            <div class="ps-5">
+                <span class="categories text-turquoise">Shop</span><br>
+                <a class="nav-link" href="#">Home</a> / <a class="nav-link" href="#">Shop</a>
+                <div>
+                    <span class="categories text-turquoise">Product Categories</span><br>
+                    <a class="category-links" href="#">Men's</a> <br>
+                    <a class="category-links" href="#">Women's</a>   <br>
+                    <a class="category-links" href="#">Kids</a> <br>
+                    <a class="category-links" href="#">Hats</a> <br>
+                    <a class="category-links" href="#">Sunglasses</a><br>
+                    <a class="category-links" href="#">Shoes</a><br>
+                    <a class="category-links" href="#">Watches</a>  <br>
+                </div>
+                <div class="pt-3">
+                    <span class="categories text-turquoise">Filter by Price</span><br>
+                    <div>
+                        <input type="range" id="min" name="min"
+                               min="0" max="4999">
+                        <label for="min">Min</label>
+                    </div>
 
-            </div>
-            <div class="pt-3">
-            <span class="categories text-turquoise">Filter by Size</span><br>
-            <span class="small">XS</span><br />
-            <span class="small">S</span><br />
-            <span class="small">M</span><br />
-            <span class="small">L</span><br />
-            <span class="small">XL</span><br />
-            <span class="small">XXL</span><br />
+                    <div>
+                        <input type="range" id="max" name="max"
+                               min="0" max="100" value="5000" step="10">
+                        <label for="max">Max</label>
+                    </div>
 
-            </div>
-            <div class="pt-3">
-            <span class="categories text-turquoise">Filter by Brand</span><br>
-            <img class="brands" src="images/Skärmbild 2022-05-02 155459.png" />
-        </div>
-            <div class="pt-3">
-            <span class="categories text-turquoise">Product Status</span><br>
-            <div class="pt-1">
-            <input type="checkbox"> <span>On Sale</span><br />
-            <input type="checkbox"> <span>In Stock </span><br />
-            </div>
-        </div>
-    </div>
-</div>
+                </div>
+                <div class="pt-3">
+                    <span class="categories text-turquoise">Filter by Color</span><br>
+                    <span class="small"><div class="color-box" id="black"></div> Black</span><br />
+                    <span class="small"><div class="color-box" id="gray"></div> Gray</span><br />
+                    <span class="small"><div class="color-box" id="red"></div> Red</span><br />
+                    <span class="small"><div class="color-box" id="green"></div> Green</span><br />
+                    <span class="small"><div class="color-box" id="orange"></div> Orange</span><br />
+                    <span class="small"><div class="color-box" id="brown"></div> Brown</span>
 
-<div class="container px-4 px-lg-5 mt-5">
-    <div class="row row-cols-2 row-cols-4 justify-content-center pb-5">
+                </div>
+                <div class="pt-3">
+                    <span class="categories text-turquoise">Filter by Size</span><br>
+                    <span class="small">XS</span><br />
+                    <span class="small">S</span><br />
+                    <span class="small">M</span><br />
+                    <span class="small">L</span><br />
+                    <span class="small">XL</span><br />
+                    <span class="small">XXL</span><br />
 
-        @foreach (var item in ViewBag.Products)
-        {
-            <div class="container px-2 px-3 mt-2 card-size">
-                <div class="col mb-3">
-                    <div class="card">
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <h5 class="fw-bolder p-2">@item.Name</h5>
-                        <span class="p-2">@item.Category.Name</span>
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                        </div>
+                </div>
+                <div class="pt-3">
+                    <span class="categories text-turquoise">Filter by Brand</span><br>
+                    <img class="brands" src="images/Skärmbild 2022-05-02 155459.png" />
+                </div>
+                <div class="pt-3 status">
+                    <span class="categories text-turquoise">Product Status</span><br>
+                    <div class="pt-1">
+                        <input type="checkbox"> <span>On Sale</span><br />
+                        <input type="checkbox"> <span>In Stock </span><br />
                     </div>
                 </div>
             </div>
+        </div>
 
-        }
-    </div>
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row row-cols-2 row-cols-4 justify-content-center mt-5 pb-5">
+
+                @foreach (var item in ViewBag.Products)
+                {
+                    <div class="container px-2 px-3 mt-2 card-size">
+                        <div class="col mb-3">
+                            <div class="card">
+                                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                                <h5 class="fw-bolder p-2">@item.Name</h5>
+                                <span class="p-2">@item.Category.Name</span>
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
             <div class="ps-5 subscribe-area">
                 <div>
-            <span class="text-uppercase subscribe">Subscribe </span><span class="text-uppercase" style="color: #20D3C2; font-size:xx-large; font-weight:700">now</span><br />
-            <span style="font-size: smaller">Signup for awesome news about our new<br />
-            products and know our special discounts on products</span></div>
+                    <span class="text-uppercase subscribe">Subscribe </span><span class="text-uppercase" style="color: #20D3C2; font-size:xx-large; font-weight:700">now</span><br />
+                    <span style="font-size: smaller">
+                        Signup for awesome news about our new<br />
+                        products and know our special discounts on products
+                    </span>
+                </div>
             </div>
+        </div>
+    </div>
 </div>
-<div></div>
-</div>
-

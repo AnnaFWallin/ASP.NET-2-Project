@@ -1,4 +1,8 @@
-﻿.text-turquoise {
+﻿.spacing{ 
+    margin-bottom: 10em;
+}
+
+.text-turquoise {
     color: #20D3C2;
     font-weight: bold;
 }
@@ -10,7 +14,7 @@
 }
 
 .sidebar {
-    float: left;
+    float: left;    
 }
 
 .nav-link {
@@ -67,7 +71,12 @@
 
 .brands {
     width: 90%;
-    padding-top: 0.5em
+    padding-top: 0.5em;
+
+}
+
+.status{
+    margin-bottom: 20em;
 }
 
 .card-size {
@@ -81,5 +90,9 @@
 .subscribe {
     font-size:xx-large; 
     font-weight:700;
+}
+
+#customRange2 {
+    width: 1em;
 }
 
