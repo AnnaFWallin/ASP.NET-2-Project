@@ -4,9 +4,18 @@ namespace WebShopApp.Controllers
 {
     public class AuthController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(string returnUrl = null)
         {
-            return View();
+            if (_signInManager.IsSignedIn(User))
+            {
+                //My Account - ordrar och wishlist kanske?
+                return View();
+            }
+            else
+            {
+                //Registrering och login - forms
+                return View();
+            }
         }
     }
 }
