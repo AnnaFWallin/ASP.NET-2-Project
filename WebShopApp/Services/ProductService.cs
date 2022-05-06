@@ -11,6 +11,7 @@ namespace WebShopApp.Services
         Task<IEnumerable<ProductModel>> GetProductByCategory(int categoryId);
         Task<IEnumerable<ProductModel>> GetProductByColor(string color);
         Task<IEnumerable<ProductModel>> GetProductBySize(string size);
+
     }
     public class ProductService : IProductService
     {
