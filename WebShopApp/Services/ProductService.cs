@@ -10,6 +10,8 @@ namespace WebShopApp.Services
         Task<ProductModel> GetProductById(int id);
         Task<IEnumerable<ProductModel>> GetProductByCategory(int categoryId);
         Task<IEnumerable<ProductModel>> GetProductByColor(string color);
+        Task<IEnumerable<ProductModel>> GetProductBySize(string size);
+
 
     }
     public class ProductService : IProductService
@@ -113,5 +115,28 @@ namespace WebShopApp.Services
             return products;
         }
 
+        public async Task<IEnumerable<ProductModel>> GetProductBySize(string size)
+        {
+            var allProducts = await GetProducts();
+
+            var products = new List<ProductModel>();
+            foreach (var product in await _context.Products.Where(product => product.Size == size).ToListAsync())
+            {
+                products.Add(new ProductModel(
+                product.Id,
+                product.Name,
+                product.Color,
+                product.PriceEUR,
+                product.PriceUSD,
+                product.Size,
+                product.Amount,
+                product.OnSale,
+                product.ImgUrl,
+                new BrandModel(product.Brand.Name),
+                new CategoryModel(product.Category.Name)
+             ));
+            }
+            return products;
+        }
     }
 }
