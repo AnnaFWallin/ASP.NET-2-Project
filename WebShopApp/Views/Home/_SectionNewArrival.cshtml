@@ -50,12 +50,12 @@
 
     .carousel-control-prev {
         justify-content: left;
-        margin-left: -100px;
+        margin-left: -70px;
     }
 
     .carousel-control-next {
         justify-content: right;
-        margin-right: -100px;
+        margin-right: -70px;
     }
 
 
@@ -75,11 +75,11 @@
         font-size: 24px;
     }
 
-    .bottom-align-text {
+    /*.bottom-align-text {
         position: absolut;
         bottom: 0;
         left: 0;
-    }
+    }*/
 
 </style>
 
@@ -99,16 +99,16 @@
 
                         @for (var j = 0; j < 3 && i + j < arrivaltestresult.Count; j++)
                         {
-                            <div class="col-4 p-0 text-center">
+                            <div class="col-4 p-0 text-center margin-">
                                 <div class="card">
                                     <img src="https://via.placeholder.com/350x350" class="card-img-top" alt="...">
 
 
-                                    <div class="card-body text-light text-start">
-                                        <div class="display-flex">
+                                    <div class="card-body text-light text-start d-flex flex-column">
+                                        <div class="display-flex mt-auto">
                                             <h5>@arrivaltestresult[i+j].Name</h5>
 
-                                            <div class="extra-info mt-auto">
+                                            <div class="extra-info">
                                                 <p>@arrivaltestresult[i+j].Category</p>
                                                 <p class="@(@arrivaltestresult[i+j].DiscountPrice > 0 ? "text-decoration-line-through" :"d-none")">@arrivaltestresult[i+j].Price</p>
                                                 <p class="price-text">@(@arrivaltestresult[i+j].DiscountPrice > 0 ? @arrivaltestresult[i+j].DiscountPrice: @arrivaltestresult[i+j].Price)</p>
