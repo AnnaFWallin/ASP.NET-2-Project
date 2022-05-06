@@ -1,0 +1,106 @@
+﻿.spacing {
+    padding-bottom: 13em;
+    height: 60em;
+    position: relative;
+    margin-bottom: 10em;
+}
+
+.text-turquoise {
+    color: #20D3C2;
+    font-weight: bold;
+}
+
+.first-div {
+    padding-left: 9em;
+    padding-right: 17em;
+    height: 40em;
+}
+
+.sidebar {
+    float: left;    
+}
+
+.nav-link {
+    font-size: small;
+    text-decoration: none;
+    color: black;
+    display: inline;
+    margin: 0%;
+    padding: 0%;
+}
+
+.categories {
+    font-weight: bold;
+    font-size: smaller;
+    color: #20D3C2;
+}
+
+.category-links {
+    font-size: small;
+    text-decoration: none;
+    color: black;
+}
+
+.color-box {
+    width: 12px;
+    height: 12px;
+    display: inline-flex;
+    border-radius: 20%
+}
+
+#black {
+    background-color: black;
+}
+
+#gray{
+    background-color: gray;
+}
+
+#red{
+    background-color: red;
+}
+
+#green{
+    background-color: green;
+}
+
+#orange{
+    background-color: orange; 
+}
+
+#brown{
+    background-color: brown;
+}
+
+.brands {
+    width: 27%;
+    padding-top: 0.5em;
+
+}
+
+.status{
+    margin-bottom: 20em;
+}
+
+.card-size {
+    width: 18rem;
+}
+
+.product-info{
+    padding: 1em; 
+}
+
+
+.subscribe-area {
+    margin-left: 15em;
+}
+
+.subscribe {
+    font-size:xx-large; 
+    font-weight:700;
+}
+
+#customRange2 {
+    width: 1em;
+}
+

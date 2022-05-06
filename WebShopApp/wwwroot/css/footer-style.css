@@ -1,0 +1,54 @@
+﻿.text-turquoise {
+    color: #20D3C2;
+}
+
+.footer {
+    background-color: #0E153D;
+    padding-left: 18em;
+    padding-right: 18em;
+    margin-top: 10em;
+}
+
+.logo-area {
+    width: 15em
+}
+
+.logo {
+    width: 12em;
+}
+
+.lorem {
+    font-size: 0.7rem;
+}
+
+.address {
+    font-size: 0.7rem;
+}
+.list-unstyled {
+    font-size: 0.8rem;
+}
+
+.instagram {
+    height: 10em;
+}
+
+.copyright-banner {
+    height: 5em;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(14,21,61,1) 0%, rgba(8,12,36,1) 51%, rgba(14,21,61,1) 100%);
+}
+
+.copyright {
+    float: left;
+    padding-left: 10em;
+}
+
+.kenkata-text {
+    text-decoration: none;
+}
+
+.payment {
+    padding-right: 10em;
+    height: 2.5em;
+    float: right;
+}
