@@ -1,0 +1,140 @@
+﻿@{
+    var arrivaltestresult = new List<ArrivalViewModel>();
+    arrivaltestresult.Add(new ArrivalViewModel() { Id = 1, Name = "Titel 1 ", Price = 100, Category = "Men", DiscountPrice = 20 });
+    arrivaltestresult.Add(new ArrivalViewModel() { Id = 2, Name = "Titel 2 ", Price = 100, Category = "Women", DiscountPrice = 0 });
+    arrivaltestresult.Add(new ArrivalViewModel() { Id = 3, Name = "Titel 3 ", Price = 100, Category = "Hats", DiscountPrice = 20 });
+    arrivaltestresult.Add(new ArrivalViewModel() { Id = 4, Name = "Titel 4 ", Price = 100, Category = "Kids", DiscountPrice = 0 });
+    arrivaltestresult.Add(new ArrivalViewModel() { Id = 5, Name = "Titel 5 ", Price = 100, Category = "Watch", DiscountPrice = 20 });
+    arrivaltestresult.Add(new ArrivalViewModel() { Id = 6, Name = "Titel 6 ", Price = 100, Category = "Sunglasses", DiscountPrice = 20 });
+    arrivaltestresult.Add(new ArrivalViewModel() { Id = 7, Name = "Titel 7 ", Price = 100, Category = "Shoes", DiscountPrice = 0 });
+    //arrivaltestresult.Add(new ArrivalViewModel() { Id = 8, Name = "Titel 8 ", Price = 100, Category = "Shoes", DiscountPrice = 0 });
+    //arrivaltestresult.Add(new ArrivalViewModel() { Id = 9, Name = "Titel 8 ", Price = 100, Category = "Shoes", DiscountPrice = 0 });
+}
+
+<style>
+    .card-body:hover {
+        /*display: none;*/
+        top: 0;
+        max-height: inherit;
+    }
+
+    .card {
+        background-color: transparent;
+    }
+
+        .card > img {
+            position: relative;
+            z-index: -1;
+        }
+
+    .card-body {
+        background: #0E153D;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 51px;
+    }
+
+        .card-body:hover .extra-info {
+            visibility: visible;
+        }
+
+        .card-body .extra-info {
+            visibility: hidden;
+        }
+
+    .custom-row {
+        margin: 0;
+    }
+
+    .carousel-control-prev {
+        justify-content: left;
+        margin-left: -100px;
+    }
+
+    .carousel-control-next {
+        justify-content: right;
+        margin-right: -100px;
+    }
+
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        height: 64px;
+        width: 64px;
+        outline: #20D3C2;
+        background-size: 50%, 50%;
+        border-radius: 50%;
+        border: 1px solid #20D3C2;
+        background-color: #20D3C2;
+    }
+
+    .price-text {
+        color: #20D3C2;
+        font-size: 24px;
+    }
+
+    .bottom-align-text {
+        position: absolut;
+        bottom: 0;
+        left: 0;
+    }
+
+</style>
+
+<div class="container mt-5">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <h2 class="text-center">NEW <span class="accent-title-color">ARRIVALS</span></h2>
+        <p class="text-center">Check out our latest products from top fashion designers</p>
+        <div class="carousel-inner">
+            @{
+                var first = true;
+            }
+
+            @for (var i = 0; i < arrivaltestresult.Count; i = i + 3)
+            {
+                <div class="carousel-item @(first ? "active" :"")">
+                    <div class="row m-0">
+
+                        @for (var j = 0; j < 3 && i + j < arrivaltestresult.Count; j++)
+                        {
+                            <div class="col-4 p-0 text-center">
+                                <div class="card">
+                                    <img src="https://via.placeholder.com/350x350" class="card-img-top" alt="...">
+
+
+                                    <div class="card-body text-light text-start">
+                                        <div class="display-flex">
+                                            <h5>@arrivaltestresult[i+j].Name</h5>
+
+                                            <div class="extra-info mt-auto">
+                                                <p>@arrivaltestresult[i+j].Category</p>
+                                                <p class="@(@arrivaltestresult[i+j].DiscountPrice > 0 ? "text-decoration-line-through" :"d-none")">@arrivaltestresult[i+j].Price</p>
+                                                <p class="price-text">@(@arrivaltestresult[i+j].DiscountPrice > 0 ? @arrivaltestresult[i+j].DiscountPrice: @arrivaltestresult[i+j].Price)</p>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            first = false;
+                        }
+                    </div>
+                </div>
+            }
+
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
