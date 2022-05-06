@@ -23,6 +23,8 @@ namespace WebShopApp.Models.Entities
         public bool OnSale { get; set; }
         [Required]
         public string ImgUrl { get; set; }
+        public int BrandId { get; set; }
+        public int CategoryId { get; set; }
         [Required]
         public BrandEntity Brand { get; set; }
         [Required]

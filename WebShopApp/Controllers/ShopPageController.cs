@@ -17,5 +17,14 @@ namespace WebShopApp.Controllers
             return View(ViewBag.Products = await _service.GetProducts());
         }
 
+        public async Task<IActionResult> Category(int id)
+        {
+            return View("Index", ViewBag.Products = await _service.GetProductByCategory(id));
+        }
+
+        public async Task<IActionResult> Color(string id)
+        {
+            return View("Index", ViewBag.Products = await _service.GetProductByColor(id));
+        }
     }
 }

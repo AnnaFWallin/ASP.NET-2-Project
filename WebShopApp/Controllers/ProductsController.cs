@@ -1,12 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebShopApp.Services;
 
 namespace WebShopApp.Controllers
 {
     public class ProductsController : Controller
     {
-        public IActionResult Index()
+        private readonly IProductService _service;
+
+        public ProductsController(IProductService service)
         {
-            return View();
+            _service = service;
         }
+
+
     }
 }

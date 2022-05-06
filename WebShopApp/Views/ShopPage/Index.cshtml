@@ -11,13 +11,13 @@
                 <a class="nav-link" href="#">Home</a> / <a class="nav-link" href="#">Shop</a>
                 <div>
                     <span class="categories text-turquoise">Product Categories</span><br>
-                    <a class="category-links" href="#">Men's</a> <br>
-                    <a class="category-links" href="#">Women's</a>   <br>
-                    <a class="category-links" href="#">Kids</a> <br>
-                    <a class="category-links" href="#">Hats</a> <br>
-                    <a class="category-links" href="#">Sunglasses</a><br>
-                    <a class="category-links" href="#">Shoes</a><br>
-                    <a class="category-links" href="#">Watches</a>  <br>
+                    <a asp-controller="ShopPage" asp-action="Category" asp-route-id="1" class="category-links">Men's</a> <br>
+                    <a asp-controller="ShopPage" asp-action="Category" asp-route-id="2" class="category-links">Women's</a>   <br>
+                    <a asp-controller="ShopPage" asp-action="Category" asp-route-id="3" class="category-links">Kids</a> <br>
+                    <a asp-controller="ShopPage" asp-action="Category" asp-route-id="4" class="category-links">Hats</a> <br>
+                    <a asp-controller="ShopPage" asp-action="Category" asp-route-id="5" class="category-links">Sunglasses</a><br>
+                    <a asp-controller="ShopPage" asp-action="Category" asp-route-id="6" class="category-links">Shoes</a><br>
+                    <a asp-controller="ShopPage" asp-action="Category" asp-route-id="7" class="category-links">Watches</a>  <br>
                 </div>
                 <div class="pt-3">
                     <span class="categories text-turquoise">Filter by Price</span><br>
@@ -36,12 +36,12 @@
                 </div>
                 <div class="pt-3">
                     <span class="categories text-turquoise">Filter by Color</span><br>
-                    <span class="small"><div class="color-box" id="black"></div> Black</span><br />
-                    <span class="small"><div class="color-box" id="gray"></div> Gray</span><br />
-                    <span class="small"><div class="color-box" id="red"></div> Red</span><br />
-                    <span class="small"><div class="color-box" id="green"></div> Green</span><br />
-                    <span class="small"><div class="color-box" id="orange"></div> Orange</span><br />
-                    <span class="small"><div class="color-box" id="brown"></div> Brown</span>
+                    <div class="color-box" id="black"></div>  <a asp-controller="ShopPage" asp-action="Color" asp-route-id="Black" class="category-links"> Black </a> <br />
+                    <div class="color-box" id="gray"></div> <a asp-controller="ShopPage" asp-action="Color" asp-route-id="Gray" class="category-links"> Gray </a></><br />
+                    <div class="color-box" id="red"></div> <a asp-controller="ShopPage" asp-action="Color" asp-route-id="Red" class="category-links"> Red </a><br />
+                    <div class="color-box" id="green"></div> <a asp-controller="ShopPage" asp-action="Color" asp-route-id="Green" class="category-links"> Green </a><br />
+                    <div class="color-box" id="orange"></div> <a asp-controller="ShopPage" asp-action="Color" asp-route-id="Orange" class="category-links"> Orange </a> <br />
+                    <div class="color-box" id="brown"></div> <a asp-controller="ShopPage" asp-action="Color" asp-route-id="Brown" class="category-links"> Brown </a>
 
                 </div>
                 <div class="pt-3">
@@ -56,7 +56,7 @@
                 </div>
                 <div class="pt-3">
                     <span class="categories text-turquoise">Filter by Brand</span><br>
-                    <img class="brands" src="images/Skärmbild 2022-05-02 155459.png" />
+                    <img class="brands" src="@Url.Content("~/images/Skärmbild 2022-04-28 155459.png")" />
                 </div>
                 <div class="pt-3 status">
                     <span class="categories text-turquoise">Product Status</span><br>
@@ -73,24 +73,35 @@
 
                 @foreach (var item in ViewBag.Products)
                 {
+                    @if (@item.Name == null)
+                    {
+                        <h1>Sorry, currently no products in this category...</h1>
+
+                    }
+
                     <div class="container px-2 px-3 mt-2 card-size">
                         <div class="col mb-3">
                             <div class="card">
                                 <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                                <h5 class="fw-bolder p-2">@item.Name</h5>
-                                <span class="p-2">@item.Category.Name</span>
+                                <div class="product-info small">
+                                    <h6 class="fw-bolder p-2">@item.Name - @item.Brand.Name</h6>
+                                    <span>@item.Category.Name</span><br>
+                                    <span>Color: @item.Color</span> <br>
+                                    <span>Price: @item.PriceUSD €</span><br>
+                                    <span>Size: @item.Size</span>
+                                </div>
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                     <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 }
+
             </div>
             <div class="ps-5 subscribe-area">
                 <div>
-                    <span class="text-uppercase subscribe">Subscribe </span><span class="text-uppercase" style="color: #20D3C2; font-size:xx-large; font-weight:700">now</span><br />
+                    <span class="text-uppercase subscribe">Subscribe </span><span class="text-uppercase subscribe text-turquoise">now</span><br />
                     <span style="font-size: smaller">
                         Signup for awesome news about our new<br />
                         products and know our special discounts on products
