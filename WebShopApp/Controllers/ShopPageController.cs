@@ -30,6 +30,10 @@ namespace WebShopApp.Controllers
         {
             return View("Index", ViewBag.Products = await _service.GetProductBySize(id));
         }
+        public async Task<IActionResult> Brand(int id)
+        {
+            return View("Index", ViewBag.Products = await _service.GetProductByBrand(id));
+        }
 
     }
 }
