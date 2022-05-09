@@ -1,12 +1,31 @@
 ﻿body {
 }
 
-.form-label {
-    height: 50px;
-    border-radius: 30px;
+.form-box {
+    margin: 10px;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
+h4 {
+    margin-top: 10px;
+}
+
+input {
+    height: 50px;
+    width: fit-content;
+    border-radius: 30px;
+    border: none;
+    text-align-last: end;
+}
+
+ input:focus {
+    border: 2px solid #a4aede;
+ }
+
 .btn {
+    height: 50px;
+    margin-bottom: 40px;
     background-color: #20D3C2;
     color: white;
     border-radius: 35px

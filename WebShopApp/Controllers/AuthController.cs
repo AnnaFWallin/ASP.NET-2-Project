@@ -20,33 +20,42 @@ namespace WebShopApp.Controllers
         //public IActionResult Index(string returnUrl = null!)
         public IActionResult Index()
         {
-
-            if (_signInManager.IsSignedIn(User))
-            {
-                //My Account - ordrar och wishlist kanske?
-                return View();
-            }
-            else
-            {
-                //Registrering och login - forms
-                return RedirectToAction("Login");
-            }
+                return View();            
         }
 
-        public IActionResult Login()
+        [HttpPost]
+        public async Task<IActionResult> Login(SignInModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, isPersistent: false, false);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Auth");
+                }
+            }
+            ModelState.AddModelError(string.Empty, "Felaktig mailadress eller lösenord.");
+
+            return RedirectToAction("Index", "Auth");
         }
 
-        public IActionResult Register(string returnUrl = null!)
+        public async Task<IActionResult> Logout()
+        {
+            if (_signInManager.IsSignedIn(User))
+                await _signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Auth");
+        }
+
+        public IActionResult Register()
         {
             if(_signInManager.IsSignedIn(User))
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Auth");
 
             var form = new RegisterFormModel();
 
-            if(returnUrl != null)
-                form.ReturnUrl = returnUrl;
+            //if(returnUrl != null)
+            //    form.ReturnUrl = returnUrl;
 
             return View(form);
         }
@@ -56,25 +65,26 @@ namespace WebShopApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var identityUser = new IdentityUser() { UserName = form.UserName, Email = form.Email };
-                
+                var identityUser = new IdentityUser() { UserName = form.UserName, Email = form.Email };                
                 var result = await _userManager.CreateAsync(identityUser, form.Password);
 
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(identityUser, isPersistent: false);
 
-                    if(form.ReturnUrl == null || form.ReturnUrl == "/")
-                        return RedirectToAction("Index", "Home");
-                    else
-                        return LocalRedirect(form.ReturnUrl);
+                    return RedirectToAction("Index", "Auth");
+
+                    //if (form.ReturnUrl == null || form.ReturnUrl == "/")
+                    //    return RedirectToAction("Index", "Home");
+                    //else
+                    //    return LocalRedirect(form.ReturnUrl);
                 }
 
             }
 
 
             ViewData["ErrorMessage"] = "The registration failed! Try again";
-            return View();
+            return View(form);
         }
 
     }

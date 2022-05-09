@@ -2,7 +2,16 @@
     ViewData["Title"] = "My Account";
 }
 
-<h1>My Account</h1>
+<div class="container-fluid" style="background-color:#AAAAAA; color:#20D3C2; height:100px">
+     <h3 class="">My Account</h3>
+ </div>
 
-<h4>My Orders</h4>
-<h4>My Wishlist</h4>
+ @if(SignInManager.IsSignedIn(User)){
+
+    <h4>My Orders</h4>
+    <h4>My Wishlist</h4>
+    <a class="nav-link text-light fs-5" asp-controller="Auth" asp-action="LogOut">Log out</a>
+}
+else{
+    <partial name="_RegisterOrLogIn" />
+}
