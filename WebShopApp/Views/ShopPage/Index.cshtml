@@ -51,7 +51,7 @@
                 </div>
                 <div class="pt-3">
                     <span class="categories text-turquoise">Filter by Brand</span><br>
-                     <a asp-controller="ShopPage" asp-action="Brand" asp-route-id="1"><img class="brands" src="@Url.Content("~/images/bexim.png")" /></a>
+                    <a asp-controller="ShopPage" asp-action="Brand" asp-route-id="1"><img class="brands" src="@Url.Content("~/images/bexim.png")" /></a>
                     <a asp-controller="ShopPage" asp-action="Brand" asp-route-id="6"><img class="brands" src="@Url.Content("~/images/concord.png")" /></a>
                     <a asp-controller="ShopPage" asp-action="Brand" asp-route-id="5"><img class="brands" src="@Url.Content("~/images/dallas.png")" /></a>
                     <a asp-controller="ShopPage" asp-action="Brand" asp-route-id="3"><img class="brands" src="@Url.Content("~/images/dismis.png")" /></a>
@@ -71,11 +71,7 @@
             <div class="row row-cols-2 row-cols-4 justify-content-center mt-5 pb-5">
                 @foreach (var item in ViewBag.Products)
                 {
-                    @if (@item.Name == null)
-                    {
-                        <h1>Sorry, currently no products in this category...</h1>
 
-                    }
                     <div class="container px-2 px-3 mt-2 card-size">
                         <div class="col mb-3">
                             <div class="card">
