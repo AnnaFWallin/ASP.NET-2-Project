@@ -9,13 +9,12 @@ namespace WebShopApp.Controllers
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly ApplicationDbContext _db;
+        //private readonly ApplicationDbContext _db;
 
-        public AuthController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, ApplicationDbContext db)
+        public AuthController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
-            _db = db;
         }
         //public IActionResult Index(string returnUrl = null!)
         public IActionResult Index()
@@ -34,7 +33,7 @@ namespace WebShopApp.Controllers
                     return RedirectToAction("Index", "Auth");
                 }
             }
-            ModelState.AddModelError(string.Empty, "Felaktig mailadress eller lösenord.");
+            ModelState.AddModelError(string.Empty, "Invalid username or password");
 
             return RedirectToAction("Index", "Auth");
         }
@@ -81,7 +80,6 @@ namespace WebShopApp.Controllers
                 }
 
             }
-
 
             ViewData["ErrorMessage"] = "The registration failed! Try again";
             return View(form);
