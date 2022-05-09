@@ -1,0 +1,13 @@
+﻿body {
+}
+
+.form-label {
+    height: 50px;
+    border-radius: 30px;
+}
+
+.btn {
+    background-color: #20D3C2;
+    color: white;
+    border-radius: 35px
+}
