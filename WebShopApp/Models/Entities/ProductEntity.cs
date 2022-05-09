@@ -30,5 +30,7 @@ namespace WebShopApp.Models.Entities
         [Required]
         public CategoryEntity Category { get; set; }
 
+        public DateTime CreatedDate { get; set; }
+
     }
 }

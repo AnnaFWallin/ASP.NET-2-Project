@@ -1,123 +1,15 @@
-﻿@{
+﻿@model IEnumerable<CategoryModel>
+<link rel="stylesheet" href="~/css/section-category-style.css" />
 
-    var testresults = new List<CategoryViewModel>();
-    testresults.Add(new CategoryViewModel() { Id = 1, Name = "Men ", ProductCount = 0 });
-    testresults.Add(new CategoryViewModel() { Id = 2, Name = "Women ", ProductCount = 0 });
-    testresults.Add(new CategoryViewModel() { Id = 3, Name = "Kids ", ProductCount = 0 });
-    testresults.Add(new CategoryViewModel() { Id = 4, Name = "Shoes ", ProductCount = 0});
-    testresults.Add(new CategoryViewModel() { Id = 5, Name = "Hats ", ProductCount = 0 });
-    testresults.Add(new CategoryViewModel() { Id = 6, Name = "Sunglasses ", ProductCount = 3 });
-    testresults.Add(new CategoryViewModel() { Id = 7, Name = "Watches ", ProductCount = 0 });
-
-}
-
-<style>
-    .card-footer > div > h6 {
-        color: white;
-        margin-bottom: 0px;
-        display: inline-block;
-    }
-    .card-footer > div > h5 {
-        display: inline-block;
-    }
-
-    .card-footer {
-        bottom: 0px;
-        position: absolute;
-        width: 50%;
-    }
-
-        .card-footer > div {
-            background-color: #0E153D;
-            color: #20D3C2;
-            padding-left: 3px;
-            padding-top: 7px;
-            min-height: 40px;
-            font-family: 'Roboto';
-            font-size: 16px;
-            border-top-right-radius: 12px 12px;
-            border-bottom-left-radius: 12px 12px;
-        }
-
-    .card {
-        border-radius: 12px;
-        display: inline-block;
-        background-color: #AAAAAA;
-    }
-
-
-    @@media screen and (min-width: 1400px) {
-        .card:nth-child(1) {
-            min-height: 214px;
-            min-width: 214px;
-            vertical-align: top;
-        }
-
-        .card:nth-child(2) {
-            min-height: 214px;
-            min-width: 439px;
-            vertical-align: top;
-        }
-
-        .card:nth-child(3) {
-            min-height: 438px;
-            min-width: 438px;
-        }
-
-        .card:nth-child(4) {
-            min-height: 438px;
-            min-width: 438px;
-            margin-top: -222px;
-        }
-
-        .card:nth-child(5) {
-            min-height: 214px;
-            min-width: 214px;
-            margin-top: -222px;
-            vertical-align: top;
-        }
-
-        .card:nth-child(6) {
-            min-height: 214px;
-            min-width: 438px;
-            margin-left: -215px;
-        }
-
-        .card:nth-child(7) {
-            min-height: 214px;
-            min-width: 214px;
-        }
-    }
-
-    @@media screen and (max-width: 1400px) {
-        .card {
-            width: 49%;
-            margin-bottom: 10px;
-            min-height: 200px !important;
-        }
-    }
-
-    .accent-title-color {
-        color: #20D3C2;
-    }
-
-    .text-container{
-        margin-left: 10%;
-        text-align: left;
-    }
-
-</style>
 
 <div class="container px-4 px-lg-5 mt-5 text-center">
     <h2 class="text-center">SHOP BY <span class="accent-title-color">CATEGORY</span></h2>
     <p class="text-center">We always try to give you the best product within a fast and reliable way</p>
 
     <div class="mt-4">
-        @foreach (var category in testresults)
+        @foreach (var category in Model)
         {
             <div class="card h-100">
-                <!-- Product image-->
-                <!-- Product actions-->
             <div class="card-footer p-0 m-0 border-top-0 bg-transparent">
                     <div>
                         <div class="ml-4 d-inline-block text-container">

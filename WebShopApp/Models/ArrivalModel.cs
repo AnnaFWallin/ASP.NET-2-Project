@@ -1,6 +1,6 @@
 ﻿namespace WebShopApp.Models
 {
-    public class ArrivalViewModel
+    public class ArrivalModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

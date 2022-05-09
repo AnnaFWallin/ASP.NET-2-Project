@@ -1,8 +1,9 @@
-﻿@{
+﻿@model HomeModel
+@{
     ViewData["Title"] = "Home";
 }
-<partial name="_SectionCategory" />
-<br />
-<br />
-<partial name ="_SectionNewArrival">
 
+@await Html.PartialAsync("_SectionCategory", ViewBag.Categories);
+<br />
+<br />
+@await Html.PartialAsync("_SectionNewArrival", ViewBag.Arrivals);
