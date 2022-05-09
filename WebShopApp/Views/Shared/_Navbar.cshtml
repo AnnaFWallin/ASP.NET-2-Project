@@ -35,7 +35,7 @@
     </div>
 
     <!-- navbar middle-->
-    <div class="row " id="navbar-middle">
+    <div class="row" id="navbar-middle">
         <div class="col-2"></div>
         <div class="col-2 d-flex justify-content-end">
             <a asp-controller="Home" asp-action="Index"><img src="images/Kenakata-logo-white.png" class="img-fluid" /></a>
@@ -69,38 +69,61 @@
     <div class="row border border-top-5 pt-10" id="navbar-bottom">
         <div class="col-2"></div>
 
-        <div class="col-8 d-flex">
-            <div class="dropdown show">
-                <a class="btn dropdown-toggle text-white theme-bg" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="col-6 d-flex">
+
+
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white theme-bg" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-bars-staggered text-white"></i> 
                     Browse Categories
                 </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Index">Men's</a></li>
+                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Index">Women's</a></li>
+                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Index">Kids</a></li>
+                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Index">Hats</a></li>
+                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Index">Sunglasses</a></li>
+                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Index">Shoes</a></li>
+                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Index">Watches</a></li>
+                </ul>
             </div>
 
-            <a class="text-decoration-none p-2 text-darkblue"asp-controller="Home" asp-action="Index">Home</a>
+            <a class="text-decoration-none p-2 text-darkblue mx-2"asp-controller="Home" asp-action="Index">Home</a>
 
-            <div class="dropdown show text-darkblue">
+            <div class="dropdown show text-darkblue mx-2">
                 <a class="btn btn-secondary dropdown-toggle border border-0 bg-white" id="nav-link1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Shop
                 </a>
             </div>
-            <div class="dropdown show">
+            <div class="dropdown show mx-2">
                 <a class="btn btn-secondary dropdown-toggle border border-0 bg-white" id="nav-link2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Products
                 </a>
             </div>
-            <div class="dropdown show">
+            <div class="dropdown show mx-2">
                 <a class="btn btn-secondary dropdown-toggle border border-0 bg-white" id="nav-link3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Categories
                 </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Index">Men's</a></li>
+                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Index">Women's</a></li>
+                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Index">Kids</a></li>
+                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Index">Hats</a></li>
+                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Index">Sunglasses</a></li>
+                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Index">Shoes</a></li>
+                    <li><a class="dropdown-item" asp-controller="Products" asp-action="Index">Watches</a></li>
+                </ul>
             </div>
-            <div class="dropdown show">
+            <div class="dropdown show mx-2">
                 <a class="btn btn-secondary dropdown-toggle border border-0 bg-white" id="nav-link4" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Pages
                 </a>
             </div>
-            <a class="text-decoration-none p-2 text-darkblue"asp-controller="" asp-action="">Blog</a>
-            <a class="btn theme-bg text-white" id="btn-special-offer">SPECIAL OFFER</a>
+            <a class="text-decoration-none p-2 text-darkblue mx-2"asp-controller="" asp-action="">Blog</a>
+            
         </div>
-
+        <div class="col-2">
+            <a class="btn theme-bg text-white px-4" id="btn-special-offer">SPECIAL OFFER</a>
+        </div> 
         <div class="col-2"></div>  
     </div>

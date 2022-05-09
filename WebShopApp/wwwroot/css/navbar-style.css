@@ -6,7 +6,7 @@ a:hover {
 }
 
 .hover-gray:hover {
-    color: #E3E3E3;
+    color: #60699c;
 }
 
 .hover-darkgray:hover {
@@ -17,6 +17,15 @@ a:hover {
 
 #navbar-top {
     background-color: #20D3C2
+}
+
+#navbar-middle {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+#navbar-bottom {
+    font-size: 1.2rem;
 }
 
 #searchbar {
@@ -35,19 +44,24 @@ a:hover {
 #btn-special-offer {
     border-radius: 35px;
     float: right;
+    font-size: 1.2rem;
 }
 
 #nav-link1 {
-    color: #0E153D
+    color: #0E153D;
+    font-size: 1.2rem;
 }
 #nav-link2 {
-    color: #0E153D
+    color: #0E153D;
+    font-size: 1.2rem;
 }
 #nav-link3 {
-    color: #0E153D
+    color: #0E153D;
+    font-size: 1.2rem;
 }
 #nav-link4 {
-    color: #0E153D
+    color: #0E153D;
+    font-size: 1.2rem;
 }
 
 
