@@ -1,20 +1,20 @@
-﻿.card-footer > div > h6 {
+﻿#category-cards .card-body > div > h6 {
     color: white;
     margin-bottom: 0px;
     display: inline-block;
 }
 
-.card-footer > div > h5 {
+#category-cards .card-body > div > h5 {
     display: inline-block;
 }
 
-.card-footer {
+#category-cards .card-body {
     bottom: 0px;
-    position: absolute;
+    /*position: absolute;*/
     width: 50%;
 }
 
-    .card-footer > div {
+    #category-cards .card-body > div {
         background-color: #0E153D;
         color: #20D3C2;
         padding-left: 3px;
@@ -34,50 +34,50 @@
 
 
 @@media screen and (min-width: 1400px) {
-    .card:nth-child(1) {
+    #category-cards .card:nth-child(1) {
         min-height: 214px;
         min-width: 214px;
         vertical-align: top;
     }
 
-    .card:nth-child(2) {
+    #category-cards .card:nth-child(2) {
         min-height: 214px;
         min-width: 439px;
         vertical-align: top;
     }
 
-    .card:nth-child(3) {
+    #category-cards .card:nth-child(3) {
         min-height: 438px;
         min-width: 438px;
     }
 
-    .card:nth-child(4) {
+    #category-cards .card:nth-child(4) {
         min-height: 438px;
         min-width: 438px;
         margin-top: -222px;
     }
 
-    .card:nth-child(5) {
+    #category-cards .card:nth-child(5) {
         min-height: 214px;
         min-width: 214px;
         margin-top: -222px;
         vertical-align: top;
     }
 
-    .card:nth-child(6) {
+    #category-cards .card:nth-child(6) {
         min-height: 214px;
         min-width: 438px;
         margin-left: -215px;
     }
 
-    .card:nth-child(7) {
+    #category-cards .card:nth-child(7) {
         min-height: 214px;
         min-width: 214px;
     }
 }
 
 @@media screen and (max-width: 1400px) {
-    .card {
+    #category-cards .card {
         width: 49%;
         margin-bottom: 10px;
         min-height: 200px !important;

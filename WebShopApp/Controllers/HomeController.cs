@@ -20,10 +20,12 @@ namespace WebShopApp.Controllers
 
         public async Task<IActionResult> Index(CancellationToken cancellationToken)
         {
-            ViewBag.Categories = await _categoryService.GetAsync(cancellationToken);
-            ViewBag.Arrivals = await _arrivalService.GetAsync(cancellationToken);
+            var viewModel = new HomeIndexViewModel();
 
-            return View();
+            viewModel.Categories = await _categoryService.GetAsync(cancellationToken);
+            viewModel.Arrivals = await _arrivalService.GetAsync(cancellationToken);
+
+            return View(viewModel);
         }
 
         public IActionResult RenderArrivalsView()

@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="~/css/section-category-style.css" />
 
 
-<div class="container px-4 px-lg-5 mt-5 text-center">
+<div id="category-cards" class="container px-4 px-lg-5 mt-5 text-center">
     <h2 class="text-center">SHOP BY <span class="accent-title-color">CATEGORY</span></h2>
     <p class="text-center">We always try to give you the best product within a fast and reliable way</p>
 
@@ -10,9 +10,9 @@
         @foreach (var category in Model)
         {
             <div class="card h-100">
-            <div class="card-footer p-0 m-0 border-top-0 bg-transparent">
+            <div class="card-body p-0 m-0 border-top-0 bg-transparent">
                     <div>
-                        <div class="ml-4 d-inline-block text-container">
+                        <div class="ms-4 d-inline-block text-container">
                         <h5>@category.Name</h5>
                         @if (category.ProductCount > 0)
                         {

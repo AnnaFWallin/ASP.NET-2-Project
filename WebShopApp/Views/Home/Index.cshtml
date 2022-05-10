@@ -1,10 +1,11 @@
-﻿@model HomeModel
+﻿@model HomeIndexViewModel
 @{
     ViewData["Title"] = "Home";
 }
 
 @*@await Html.PartialAsync("_SectionCategory", ViewBag.Categories);*@
-<partial name="_SectionCategory" />
+<partial name="_SectionCategory" model="Model.Categories" />
 <br />
 <br />
+<partial name="_SectionNewArrival" model="Model.Arrivals" />
 @*@await Html.PartialAsync("_SectionNewArrival", ViewBag.Arrivals);*@
