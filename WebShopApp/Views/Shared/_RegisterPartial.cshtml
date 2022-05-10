@@ -1,0 +1,20 @@
+﻿@model WebShopApp.Models.RegisterFormModel
+
+<h4>REGISTER</h4>
+<p>Register for this site allows you to access your order status and history. Just fill in the fields in the fields below, and we'll get a new accountset up for you.</p>
+<form asp-action="Register" >
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<label asp-for="UserName" class="form-label">Username</label><br />
+<input asp-for="UserName" class="form-controll w-100"> 
+<span asp-validation-for="UserName" class="form-text text-danger"></span><br />
+
+<label asp-for="Email" class="form-label">Email address</label><br />
+<input asp-for="Email" class="form-controll w-100"> 
+<span asp-validation-for="Email" class="form-text text-danger"></span><br />
+
+<label asp-for="Password" class="form-label">Password</label><br />
+<input asp-for="Password" class="form-controll w-100">
+<span asp-validation-for="Password" class="form-text text-danger"></span>
+<button type="submit" class="btn w-100 mt-3">REGISTER</button>
+</form>
