@@ -1,8 +1,6 @@
 ﻿.spacing {
-    padding-bottom: 13em;
-    height: 60em;
+    height: 55em;
     position: relative;
-    margin-bottom: 10em;
 }
 
 .text-turquoise {
@@ -13,7 +11,6 @@
 .first-div {
     padding-left: 9em;
     padding-right: 17em;
-    height: 40em;
 }
 
 .sidebar {
@@ -75,11 +72,6 @@
 .brands {
     width: 27%;
     padding-top: 0.5em;
-
-}
-
-.status{
-    margin-bottom: 20em;
 }
 
 .card-size {
@@ -90,17 +82,11 @@
     padding: 1em; 
 }
 
-
 .subscribe-area {
-    margin-left: 15em;
+    padding-left: 34em;
 }
 
 .subscribe {
     font-size:xx-large; 
     font-weight:700;
 }
-
-#customRange2 {
-    width: 1em;
-}
-

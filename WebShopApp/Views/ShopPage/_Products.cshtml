@@ -1,5 +1,28 @@
 ﻿@model IEnumerable<ProductModel>
 <link rel="stylesheet" href="~/css/shop-page-style.css" />
 
+        <div class="container containersizing mt-5">
+            <div class="row row-cols-2 row-cols-4 justify-content-center mt-5">
+                @foreach (var item in ViewBag.Products)
+                {
 
-
+                    <div class="container px-2 px-1 mt-2 card-size">
+                        <div class="col mb-3">
+                            <div class="card">
+                                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                                <div class="product-info small">
+                                    <h6 class="fw-bolder p-2">@item.Name - @item.Brand.Name</h6>
+                                    <span>@item.Category.Name</span><br>
+                                    <span>Color: @item.Color</span> <br>
+                                    <span>Price: @item.PriceUSD €</span><br>
+                                    <span>Size: @item.Size</span>
+                                </div>
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
