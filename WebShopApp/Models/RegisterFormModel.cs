@@ -13,6 +13,8 @@ namespace WebShopApp.Models
 
         [Required (ErrorMessage = "You need to put in a Password")]
         [DataType (DataType.Password)]
+        [StringLength(50, ErrorMessage = "The must be at least 8 figures and contain numbers", MinimumLength = 8)]
+        
         public string Password { get; set; } = null!;
 
         public string ReturnUrl { get; set; } = "/";

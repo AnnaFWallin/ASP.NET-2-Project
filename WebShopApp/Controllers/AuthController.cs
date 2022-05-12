@@ -31,8 +31,9 @@ namespace WebShopApp.Controllers
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Auth");
-                }
+                }            
             }
+
             ModelState.AddModelError(string.Empty, "Invalid username or password");
 
             return RedirectToAction("Index", "Auth");
@@ -53,15 +54,12 @@ namespace WebShopApp.Controllers
 
             var form = new RegisterFormModel();
 
-            //if(returnUrl != null)
-            //    form.ReturnUrl = returnUrl;
-
             return View(form);
         }
 
         [HttpPost]
         public async Task<IActionResult> Register(RegisterFormModel form)
-        {
+        { 
             if (ModelState.IsValid)
             {
                 var identityUser = new IdentityUser() { UserName = form.UserName, Email = form.Email };                
@@ -72,18 +70,12 @@ namespace WebShopApp.Controllers
                     await _signInManager.SignInAsync(identityUser, isPersistent: false);
 
                     return RedirectToAction("Index", "Auth");
-
-                    //if (form.ReturnUrl == null || form.ReturnUrl == "/")
-                    //    return RedirectToAction("Index", "Home");
-                    //else
-                    //    return LocalRedirect(form.ReturnUrl);
                 }
 
+                foreach (var error in result.Errors)
+                    ModelState.AddModelError(string.Empty, error.Description);      
             }
-
-            ViewData["ErrorMessage"] = "The registration failed! Try again";
             return View(form);
         }
-
     }
 }
