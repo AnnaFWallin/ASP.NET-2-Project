@@ -35,8 +35,11 @@ namespace WebShopApp.Controllers
             }
 
             ModelState.AddModelError(string.Empty, "Invalid username or password");
+            ViewData["ErrorMessage"] = "Username or password was invalid";
+            ViewBag.Error = "Username or password was invalid";
 
             return RedirectToAction("Index", "Auth");
+            //return View(model);
         }
 
         public async Task<IActionResult> Logout()
@@ -75,7 +78,9 @@ namespace WebShopApp.Controllers
                 foreach (var error in result.Errors)
                     ModelState.AddModelError(string.Empty, error.Description);      
             }
-            return View(form);
+            //return View(form);
+
+            return RedirectToAction("Index");
         }
     }
 }
