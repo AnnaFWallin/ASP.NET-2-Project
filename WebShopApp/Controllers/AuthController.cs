@@ -34,11 +34,11 @@ namespace WebShopApp.Controllers
                 }            
             }
 
-            ModelState.AddModelError(string.Empty, "Invalid username or password");
-            ViewData["ErrorMessage"] = "Username or password was invalid";
+            //ModelState.AddModelError(string.Empty, "Invalid username or password");
+            //ViewData["ErrorMessage"] = "Username or password was invalid";
             ViewBag.Error = "Username or password was invalid";
 
-            return RedirectToAction("Index", "Auth");
+            return RedirectToAction("Index", ViewData["ErrorMessage"] = "Username or password was invalid");
             //return View(model);
         }
 
