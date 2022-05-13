@@ -1,20 +1,29 @@
 ﻿.spacing {
     height: 55em;
     position: relative;
+    overflow: auto;
+    width: 80em;
+    padding-right: 0em;
+    margin-right: 0em;
 }
-
+.window {
+    height: 65em;
+}
 .text-turquoise {
     color: #20D3C2;
     font-weight: bold;
 }
 
 .first-div {
-    padding-left: 9em;
-    padding-right: 17em;
+    padding-left: 2em;
+    padding-right: 10em;
 }
 
 .sidebar {
-    float: left;    
+    float: left;   
+    padding-left: 10em;
+    padding-top: 4em;
+    padding-bottom: 5em;
 }
 
 .nav-link {
@@ -137,71 +146,95 @@
     width: 20%;
 }
 
-@media screen and (max-width: 1680px) {
+@media screen and (max-width: 1800px) {
+
     .first-div {
-        padding: 0em;
+        padding-right: 0em;
     }
-    .card-size {
-        width: 15em;
-    }
-    .subscribe-area{
-        display: none;
-    }
-    .spacing {
-        height: 60em;
+}
+    @media screen and (max-width: 1730px) {
+        .first-div {
+            padding: 0em;
+        }
+
+        .card-size {
+            width: 15em;
+        }
+
+        .spacing {
+            width: 50em;
+        }
+        .sidebar {
+        padding-left: 0em;
+        
+        }
+        .first-div {
+            padding-right: 3em;
+            margin: 0em;
+            height: 70em;
+        }
     }
 
-}
-@media screen and (max-width: 1140px) {
-    .color-box {
-        overflow-y: scroll;
+    @media screen and (max-width: 1140px) {
+        .spacing {
+            width: 40em;
+        }
+        
+        .brands {
+            display: block;
+            width: 4em;
+        }
+        .window {
+            height: 75em;
+        }
+
     }
+
+@media screen and (max-width: 900px) {
     .spacing {
+        width: 30em;
         height: 70em;
     }
-
-    .brands {
-        display: block;
-        width: 4em;
-    }
-}
-@media screen and (max-width: 900px) {
-    .card-size {
-        width: 10em;
-    }
-
-}
-@media screen and (max-width: 700px) {
-    .sidebar {
+    .subscribe-area {
         display: none;
     }
 
-    .title{
-        font-size: small;
-    }
 
-    .first-div {
-        padding: 0em;
-        margin: 0em;
-    }
 
-    .container {
-        padding: 0em;
-        margin: 0em;
-    }
-
-    containersizing{
-        width: 5em;
-    }
-    .row {
-        column-count: 2;
-        justify-content: left; 
-    }
-    .banner{
-        display: none;
-    }
 }
 
+
+
+
+    @media screen and (max-width: 650px) {
+        .sidebar {
+            display: none;
+        }
+
+
+        .title {
+            font-size: small;
+        }
+
+        .container {
+            padding: 0em;
+            margin: 0em;
+        }
+
+        containersizing {
+            width: 5em;
+        }
+
+        .row {
+            column-count: 2;
+            justify-content: left;
+        }
+
+        .banner {
+            display: none;
+        }
+
+    }
 
 
 
