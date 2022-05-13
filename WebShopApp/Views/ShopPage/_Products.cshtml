@@ -8,20 +8,17 @@
             <div class="row justify-content-center mt-5">
                 @foreach (var item in ViewBag.Products)
                 {
-
-                    <div class="container px-2 px-1 mt-2 card-size">
-                        <div class="col mb-3">
+                    <div class="container mt-2 card-size">
+                        <div class="col">
                             <div class="card">
-                                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                                <img class="card-img-top" src="https://dummyimage.com/255x247/d9d9d9/ffffff.png" alt="..." />
                                 <div class="product-info small">
-                                    <h6 class="title fw-bolder p-2">@item.Name - @item.Brand.Name</h6>
-                                    <span>@item.Category.Name</span><br>
-                                    <span>Color: @item.Color</span> <br>
-                                    <span>Price: @item.PriceUSD €</span><br>
-                                    <span>Size: @item.Size</span>
-                                </div>
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                    <span class="title">@item.Name - @item.Brand.Name</span>
+                                    <div class="more-info">
+                                    <span>@item.PriceUSD EUR</span><br>
+                                    <span>@item.Category.Name</span><br><br>
+                                    <button class="addtocart-button">Add To Cart</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

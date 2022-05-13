@@ -85,12 +85,44 @@
 
 .card-size {
     width: 18rem;
+    border-radius: 5%;
 }
+.product-info {
+    background-color: #0E153D;
+    color: white;
+    height: 3em;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    padding-left: 2em;
+    padding-top: 0.5em;
+    width: 16.4rem;
 
-.product-info{
-    padding: 1em; 
 }
+.addtocart-button {
+    border-radius: 3px;
+    border: none;
+    background-color: #20D3C2;
+    color: white;
+}
+.more-info {
+    display: none;
+}
+.title{
+    visibility:visible;
+}
+.card:hover > .card-img-top {
+    display: none;
+}
+.card:hover .product-info {
+    height: 18.5rem;
+}
+.card:hover .product-info > .more-info {
+        display: block;
+    }
+    .card:hover .product-info > .addtocart-button {
+        display: contents;
 
+    }
 .subscribe-area {
     padding-left: 34em;
 }
@@ -98,9 +130,6 @@
 .subscribe {
     font-size:xx-large; 
     font-weight:700;
-}
-
-.row {
 }
 
 .layout-options {
@@ -160,6 +189,13 @@
         .card-size {
             width: 15em;
         }
+        .product-info{
+            width: 15.3em;
+
+        }
+        .card:hover .product-info {
+            height: 16.4rem;
+        }
 
         .spacing {
             width: 50em;
@@ -202,15 +238,17 @@
 
 
 }
-
-
-
-
     @media screen and (max-width: 650px) {
         .sidebar {
             display: none;
         }
 
+        .product-info {
+            width: 15rem;
+        }
+        .card:hover .product-info {
+            height: 18rem;
+        }
 
         .title {
             font-size: small;
