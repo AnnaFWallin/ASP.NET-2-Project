@@ -56,6 +56,8 @@
         public string Color { get; set; }
         public decimal PriceEUR { get; set; }
         public decimal PriceUSD { get; set; }
+        public decimal PriceEURDiscount { get; set; }
+        public decimal PriceUSDDiscount { get; set; }
         public string Size { get; set; }
         public int Amount { get; set; }
         public bool OnSale { get; set; }

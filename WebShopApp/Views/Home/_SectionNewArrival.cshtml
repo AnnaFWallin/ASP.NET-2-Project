@@ -1,33 +1,22 @@
-﻿@{
-    var arrivaltestresult = new List<ArrivalModel>();
-    arrivaltestresult.Add(new ArrivalModel() { Id = 1, Name = "Titel 1 ", Price = 100, Category = "Men", DiscountPrice = 20, HotSale = false });
-    arrivaltestresult.Add(new ArrivalModel() { Id = 2, Name = "Titel 2 ", Price = 100, Category = "Women", DiscountPrice = 0, HotSale = false });
-    arrivaltestresult.Add(new ArrivalModel() { Id = 3, Name = "Titel 3 ", Price = 100, Category = "Hats", DiscountPrice = 20, HotSale = true });
-    arrivaltestresult.Add(new ArrivalModel() { Id = 4, Name = "Titel 4 ", Price = 100, Category = "Kids", DiscountPrice = 0, HotSale = false });
-    arrivaltestresult.Add(new ArrivalModel() { Id = 5, Name = "Titel 5 ", Price = 100, Category = "Watch", DiscountPrice = 20, HotSale = true });
-    arrivaltestresult.Add(new ArrivalModel() { Id = 6, Name = "Titel 6 ", Price = 100, Category = "Sunglasses", DiscountPrice = 20, HotSale = true });
-    arrivaltestresult.Add(new ArrivalModel() { Id = 7, Name = "Titel 7 ", Price = 100, Category = "Shoes", DiscountPrice = 0, HotSale = false });
-    //arrivaltestresult.Add(new ArrivalViewModel() { Id = 8, Name = "Titel 8 ", Price = 100, Category = "Shoes", DiscountPrice = 0 });
-    //arrivaltestresult.Add(new ArrivalViewModel() { Id = 9, Name = "Titel 8 ", Price = 100, Category = "Shoes", DiscountPrice = 0 });
-}
+﻿@model List<ArrivalModel>
 
 <style>
-    .card-body:hover {
+    #newsArrivalCarousel .card-body:hover {
         /*display: none;*/
         top: 0;
         max-height: inherit;
     }
 
-    .card {
+    #newsArrivalCarousel .card {
         background-color: transparent;
     }
 
-        .card > img {
+        #newsArrivalCarousel .card > img {
             position: relative;
             z-index: -1;
         }
 
-    .card-body {
+    #newsArrivalCarousel .card-body {
         background: #0E153D;
         position: absolute;
         bottom: 0;
@@ -36,31 +25,31 @@
         max-height: 51px;
     }
 
-        .card-body:hover .extra-info {
+        #newsArrivalCarousel .card-body:hover .extra-info {
             visibility: visible;
         }
 
-        .card-body .extra-info {
+        #newsArrivalCarousel .card-body .extra-info {
             visibility: hidden;
         }
 
-    .custom-row {
+    #newsArrivalCarousel .custom-row {
         margin: 0;
     }
 
-    .carousel-control-prev {
+    #newsArrivalCarousel .carousel-control-prev {
         justify-content: left;
         margin-left: -40px;
     }
 
-    .carousel-control-next {
+    #newsArrivalCarousel .carousel-control-next {
         justify-content: right;
         margin-right: -40px;
     }
 
 
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
+    #newsArrivalCarousel .carousel-control-prev-icon,
+    #newsArrivalCarousel .carousel-control-next-icon {
         height: 64px;
         width: 64px;
         outline: #20D3C2;
@@ -70,12 +59,12 @@
         background-color: #20D3C2;
     }
 
-    .price-text {
+    #newsArrivalCarousel .price-text {
         color: #20D3C2;
         font-size: 24px;
     }
 
-    .circle-info {
+    #newsArrivalCarousel .circle-info {
         height: 60px;
         width: 60px;
         position: absolute;
@@ -86,76 +75,92 @@
         color: #FFF;
     }
 
-    .hot {
+    #newsArrivalCarousel .hot {
         background-color: #FE4545;
     }
 
-    .sales {
+    #newsArrivalCarousel .sales {
         background-color: #64CB83;
     }
 
-    a.disabled {
+    #newsArrivalCarousel a.disabled {
         pointer-events: none;
     }
 
-        a.disabled > .carousel-control-prev-icon {
+        #newsArrivalCarousel a.disabled > .carousel-control-prev-icon {
             color: grey;
             border: 1px solid grey;
             background-color: grey;
         }
 
-        a.disabled > .carousel-control-next-icon {
+        #newsArrivalCarousel a.disabled > .carousel-control-next-icon {
             color: grey;
             border: 1px solid grey;
             background-color: grey;
         }
 
+    #newsArrivalCarousel .quick-menu {
+        position: absolute;
+        border: 1px solid #DDD;
+        background-color: #FFFFFF;
+        top: 10px;
+        right: 10px;
+        width: 47px;
+        border-radius: 25px;
+    }
 </style>
 
 <div class="container mt-5">
     <h2 class="text-center">NEW <span class="accent-title-color">ARRIVALS</span></h2>
     <p class="text-center">Check out our latest products from top fashion designers</p>
-    <div id="newsArrivalCarousel" class="carousel slide" data-ride="carousel">
+    <div id="newsArrivalCarousel" class="carousel">
         @{
             var first = true;
         }
         <div class="carousel-inner">
 
 
-            @for (var i = 0; i < arrivaltestresult.Count; i = i + 3)
+            @for (var i = 0; i < Model.Count(); i = i + 3)
             {
-                <div class="carousel-item @(first ? "active" :"")" data-slide-index="@i">
+                <div class="carousel-item @(first ? "active" :"")">
                     <div class="row m-0">
 
-                        @for (var j = 0; j < 3 && i + j < arrivaltestresult.Count; j++)
+                        @for (var j = 0; j < 3 && i + j < Model.Count; j++)
                         {
                             <div class="col-4 p-0 text-center">
                                 <div class="card">
                                     <img src="https://via.placeholder.com/350x350" class="card-img-top" alt="...">
 
 
-                                    <div class="@(@arrivaltestresult[i+j].DiscountPrice > 0 ? "sales" : "d-none") circle-info hot d-flex flex-column">
+                                    <div class="@(Model[i+j].DiscountPrice < @Model[i+j].Price ? "sales" : "d-none") circle-info hot d-flex flex-column">
                                         @{
 
-                                            int percentagedecrease = (int)(((arrivaltestresult[i + j].Price - arrivaltestresult[i + j].DiscountPrice) / arrivaltestresult[i + j].Price) * 100);
+                                            int percentagedecrease = (int)(((Model[i + j].Price - Model[i + j].DiscountPrice) / Model[i + j].Price) * 100);
                                         }
 
 
                                         <span class="my-auto">@percentagedecrease %</span>
                                     </div>
 
-                                    <div class="@(@arrivaltestresult[i+j].HotSale ? "hot" : "d-none") circle-info hot d-flex flex-column">
+                                    <div class="@(Model[i+j].HotSale ? "hot" : "d-none") circle-info hot d-flex flex-column">
                                         <span class="my-auto">HOT</span>
                                     </div>
 
                                     <div class="card-body text-light text-start d-flex flex-column">
                                         <div class="mt-auto">
-                                            <h5>@arrivaltestresult[i+j].Name</h5>
+                                            <h5>@Model[i+j].Name</h5>
 
                                             <div class="extra-info">
-                                                <p>@arrivaltestresult[i+j].Category</p>
-                                                <p class="@(@arrivaltestresult[i+j].DiscountPrice > 0 ? "text-decoration-line-through" :"d-none")">@arrivaltestresult[i+j].Price</p>
-                                                <p class="price-text">@(@arrivaltestresult[i+j].DiscountPrice > 0 ? @arrivaltestresult[i+j].DiscountPrice: @arrivaltestresult[i+j].Price)</p>
+                                                <p>@Model[i+j].Category</p>
+                                                <p class="@(@Model[i+j].DiscountPrice < @Model[i+j].Price ? "text-decoration-line-through" :"d-none")">@Model[i+j].Price</p>
+                                                <p class="price-text">@(@Model[i+j].DiscountPrice > 0 ? @Model[i+j].DiscountPrice: @Model[i+j].Price)</p>
+
+                                                <div class="quick-menu">
+                                                    <button type="button" class="btn btn-ligth add-to-cart" data-product-id="@Model[i+j].Id">
+                                                        <i class="fa-solid fa-cart-plus"></i>
+                                                    </button>
+                                                    <br />
+                                                </div>
                                             </div>
                                         </div>
 
@@ -172,11 +177,11 @@
 
 
         </div>
-        <a class="carousel-control-prev" href="#newsArrivalCarousel" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#newsArrivalCarousel" role="button" data-slide="prev" data-bs-target="#newsArrivalCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#newsArrivalCarousel" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#newsArrivalCarousel" role="button" data-slide="next" data-bs-target="#newsArrivalCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
@@ -184,16 +189,13 @@
 </div>
 
 
-@*<script>
-    $(document).ready(function(){
-        var carouselElement = $(".carousel");
-
-        $("#newsArrivalCarousel").on('slide.bs.carousel', function(){
-            console.log("Hej");
-            var carouselItems = carouselElement.find('.carousel-item.active');
-            console.log(carouselItems);
-            var currentIndex = carouselItems.data('slide-index');
-            console.log(currentIndex);
-        });
+<script>
+    $(document).ready(function (){
+        $(".add-to-cart").on("click", function(){
+            var productId = $(this).data("product-id");
+            console.log(productId);
+            localStorage.setItem("checkouts", productId);
+        })
+        
     })
-</script>*@
+</script>
