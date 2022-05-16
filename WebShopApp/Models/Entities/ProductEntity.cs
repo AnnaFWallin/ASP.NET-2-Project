@@ -21,6 +21,9 @@ namespace WebShopApp.Models.Entities
         public int Amount { get; set; }
         [Required]
         public bool OnSale { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public decimal DiscountPercentage { get; set; }
+
         [Required]
         public string ImgUrl { get; set; }
         public int BrandId { get; set; }

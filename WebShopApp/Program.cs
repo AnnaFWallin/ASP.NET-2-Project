@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebShopApp.Data;
+using WebShopApp.Interfaces;
 using WebShopApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,13 @@ builder.Services.AddScoped<IProductService, ProductService>();
 
 
 builder.Services.AddControllersWithViews();
+
+//AutoMapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IArrivalService, ArrivalService>();
 
 var app = builder.Build();
 
