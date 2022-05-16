@@ -12,7 +12,9 @@ namespace WebShopApp.Services
         Task<IEnumerable<ProductModel>> GetProductByColor(string color);
         Task<IEnumerable<ProductModel>> GetProductBySize(string size);
         Task<IEnumerable<ProductModel>> GetProductByBrand(int brandId);
-
+        Task<IEnumerable<ProductModel>> GetProductsOnSale();
+        Task<IEnumerable<ProductModel>> GetProductsInStock();
+        Task<IEnumerable<ProductModel>> GetProductsByPrice(int min, int max);
 
     }
     public class ProductService : IProductService
@@ -144,6 +146,81 @@ namespace WebShopApp.Services
 
             var products = new List<ProductModel>();
             foreach (var product in await _context.Products.Where(product => product.BrandId == brandId).ToListAsync())
+            {
+                products.Add(new ProductModel(
+                product.Id,
+                product.Name,
+                product.Color,
+                product.PriceEUR,
+                product.PriceUSD,
+                product.Size,
+                product.Amount,
+                product.OnSale,
+                product.ImgUrl,
+                new BrandModel(product.Brand.Name),
+                new CategoryModel(product.Category.Name)
+             ));
+            }
+            return products;
+        }
+
+        public async Task<IEnumerable<ProductModel>> GetProductsOnSale()
+        {
+            var allProducts = await GetProducts();
+
+            var products = new List<ProductModel>();
+
+            foreach (var product in await _context.Products.Where(product => product.OnSale == true).ToListAsync())
+            {
+                products.Add(new ProductModel(
+                product.Id,
+                product.Name,
+                product.Color,
+                product.PriceEUR,
+                product.PriceUSD,
+                product.Size,
+                product.Amount,
+                product.OnSale,
+                product.ImgUrl,
+                new BrandModel(product.Brand.Name),
+                new CategoryModel(product.Category.Name)
+             ));
+            }
+            return products;
+        }
+
+        public async Task<IEnumerable<ProductModel>> GetProductsInStock()
+        {
+            var allProducts = await GetProducts();
+
+            var products = new List<ProductModel>();
+
+            foreach (var product in await _context.Products.Where(product => product.Amount > 0).ToListAsync())
+            {
+                products.Add(new ProductModel(
+                product.Id,
+                product.Name,
+                product.Color,
+                product.PriceEUR,
+                product.PriceUSD,
+                product.Size,
+                product.Amount,
+                product.OnSale,
+                product.ImgUrl,
+                new BrandModel(product.Brand.Name),
+                new CategoryModel(product.Category.Name)
+             ));
+            }
+            return products;
+        }
+
+        public async Task<IEnumerable<ProductModel>> GetProductsByPrice(int min, int max)
+        {
+            var allProducts = await GetProducts();
+
+            var products = new List<ProductModel>();
+
+            foreach (var product in await _context.Products.Where(product => product.PriceUSD > min && product.PriceUSD <= max).ToListAsync())
             {
                 products.Add(new ProductModel(
                 product.Id,

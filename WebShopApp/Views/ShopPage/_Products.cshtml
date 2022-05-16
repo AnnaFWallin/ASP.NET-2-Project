@@ -1,5 +1,29 @@
-﻿@model IEnumerable<ProductModel>
+﻿<meta name="viewport" content="width=device-width, scale=1.0" />
 <link rel="stylesheet" href="~/css/shop-page-style.css" />
 
 
+@model IEnumerable<ProductModel>
 
+        <div class="container containersizing mt-5">
+            <div class="row justify-content-center mt-5">
+                @foreach (var item in ViewBag.Products)
+                {
+                    <div class="container mt-2 card-size">
+                        <div class="col">
+                            <div class="card">
+                                <img class="card-img-top" src="https://dummyimage.com/255x247/d9d9d9/ffffff.png" alt="..." />
+                                <div class="product-info small">
+                                    <span class="title">@item.Name - @item.Brand.Name</span>
+                                    <div class="more-info">
+                                    <span>@item.PriceUSD EUR</span><br>
+                                    <span>@item.Category.Name</span><br><br>
+                                    <button class="addtocart-button">Add To Cart</button><br>
+                                    <button class="addtowishlist-button">Add To Wishlist</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>

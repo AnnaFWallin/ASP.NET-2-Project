@@ -16,12 +16,10 @@ namespace WebShopApp.Controllers
         {
             return View(ViewBag.Products = await _service.GetProducts());
         }
-
         public async Task<IActionResult> Category(int id)
         {
             return View("Index", ViewBag.Products = await _service.GetProductByCategory(id));
         }
-
         public async Task<IActionResult> Color(string id)
         {
             return View("Index", ViewBag.Products = await _service.GetProductByColor(id));
@@ -33,6 +31,18 @@ namespace WebShopApp.Controllers
         public async Task<IActionResult> Brand(int id)
         {
             return View("Index", ViewBag.Products = await _service.GetProductByBrand(id));
+        }
+        public async Task<IActionResult> OnSale()
+        {
+            return View("Index", ViewBag.Products = await _service.GetProductsOnSale());
+        }
+        public async Task<IActionResult> InStock()
+        {
+            return View("Index", ViewBag.Products = await _service.GetProductsInStock());
+        }
+        public async Task<IActionResult> Price(int id, int id2)
+        {
+            return View("Index", ViewBag.Products = await _service.GetProductsByPrice(id, id2));
         }
 
     }

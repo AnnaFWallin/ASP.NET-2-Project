@@ -1,8 +1,14 @@
 ﻿.spacing {
-    padding-bottom: 13em;
-    height: 60em;
+    height: 55em;
     position: relative;
-    margin-bottom: 10em;
+    overflow: auto;
+    width: 80em;
+    padding-right: 0em;
+    margin-right: 0em;
+}
+
+.window {
+    height: 65em;
 }
 
 .text-turquoise {
@@ -11,13 +17,15 @@
 }
 
 .first-div {
-    padding-left: 9em;
-    padding-right: 17em;
-    height: 40em;
+    padding-left: 2em;
+    padding-right: 10em;
 }
 
 .sidebar {
-    float: left;    
+    float: left;
+    padding-left: 10em;
+    padding-top: 4em;
+    padding-bottom: 5em;
 }
 
 .nav-link {
@@ -52,55 +60,251 @@
     background-color: black;
 }
 
-#gray{
+#gray {
     background-color: gray;
 }
 
-#red{
+#red {
     background-color: red;
 }
 
-#green{
+#green {
     background-color: green;
 }
 
-#orange{
-    background-color: orange; 
+#orange {
+    background-color: orange;
 }
 
-#brown{
+#brown {
     background-color: brown;
 }
 
 .brands {
     width: 27%;
     padding-top: 0.5em;
-
-}
-
-.status{
-    margin-bottom: 20em;
 }
 
 .card-size {
     width: 18rem;
+    border-radius: 5%;
 }
 
-.product-info{
-    padding: 1em; 
+.product-info {
+    background-color: #0E153D;
+    color: white;
+    height: 3em;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    padding-left: 2em;
+    padding-top: 0.5em;
+    width: 16.4rem;
 }
 
+.addtocart-button {
+    border-radius: 3px;
+    border: none;
+    background-color: #20D3C2;
+    color: white;
+}
+
+.addtowishlist-button {
+    border-radius: 4px;
+    border: none;
+    background-color: white;
+    color: #20D3C2;
+    margin-top: 1em;
+}
+
+.more-info {
+    display: none;
+}
+
+.title {
+    visibility: visible;
+}
+
+.card:hover > .card-img-top {
+    display: none;
+}
+
+.card:hover .product-info {
+    padding-top: 2em;
+    height: 18.5rem;
+}
+
+    .card:hover .product-info > .more-info {
+        display: block;
+    }
+
+    .card:hover .product-info > .addtocart-button {
+        display: contents;
+    }
+
+    .card:hover .product-info > .addtowishlist-button {
+        display: contents;
+    }
 
 .subscribe-area {
-    margin-left: 15em;
+    padding-left: 34em;
 }
 
 .subscribe {
-    font-size:xx-large; 
-    font-weight:700;
+    font-size: xx-large;
+    font-weight: 700;
+}
+.email-input{
+    border: none; 
+
+}
+.subscribe-button {
+    border-radius: 16px;
+    border: none;
+    background-color: #20D3C2;
+    color: white;
 }
 
-#customRange2 {
-    width: 1em;
+
+.layout-options {
+    float: right;
+    color: #0E153D;
+    width: 122px;
+    height: 122px;
+    border-radius: 20%
 }
 
+
+.banner {
+    background-color: #292f53;
+    width: 100%;
+    height: 22em;
+}
+
+.fonts {
+    float: left;
+    font-size: 3em;
+    font-weight: 600;
+}
+
+.new-customer {
+    font-size: 1em;
+}
+
+.fifty {
+    display: inline-block;
+}
+
+.learn-button {
+    margin-left: 2em;
+    font-size: 25px;
+    padding-right: 0.7em;
+    padding-left: 0.7em;
+    padding-bottom: 0.2em;
+    border-radius: 36px;
+}
+
+.shoes {
+    float: right;
+    width: 20%;
+}
+
+@media screen and (max-width: 1800px) {
+
+    .first-div {
+        padding-right: 0em;
+    }
+}
+
+@media screen and (max-width: 1730px) {
+    .first-div {
+        padding: 0em;
+    }
+
+    .card-size {
+        width: 15em;
+    }
+
+    .product-info {
+        width: 15.3em;
+    }
+
+    .card:hover .product-info {
+        height: 16.4rem;
+    }
+
+    .spacing {
+        width: 50em;
+    }
+
+    .sidebar {
+        padding-left: 0em;
+    }
+
+    .first-div {
+        padding-right: 3em;
+        margin: 0em;
+        height: 70em;
+    }
+}
+
+@media screen and (max-width: 1140px) {
+    .spacing {
+        width: 40em;
+    }
+
+    .brands {
+        display: block;
+        width: 4em;
+    }
+
+    .window {
+        height: 75em;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .spacing {
+        width: 30em;
+        height: 70em;
+    }
+
+    .subscribe-area {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .sidebar {
+        display: none;
+    }
+
+    .product-info {
+        width: 15rem;
+    }
+
+    .card:hover .product-info {
+        height: 18rem;
+    }
+
+    .title {
+        font-size: small;
+    }
+
+    .container {
+        padding: 0em;
+        margin: 0em;
+    }
+
+    containersizing {
+        width: 5em;
+    }
+
+    .row {
+        column-count: 2;
+        justify-content: left;
+    }
+
+    .banner {
+        display: none;
+    }
+}

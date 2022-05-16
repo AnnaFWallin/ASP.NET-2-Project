@@ -1,4 +1,6 @@
-﻿.text-turquoise {
+﻿
+
+.text-turquoise {
     color: #20D3C2;
 }
 
@@ -6,7 +8,6 @@
     background-color: #0E153D;
     padding-left: 18em;
     padding-right: 18em;
-    margin-top: 10em;
 }
 
 .logo-area {
@@ -24,6 +25,7 @@
 .address {
     font-size: 0.7rem;
 }
+
 .list-unstyled {
     font-size: 0.8rem;
 }
@@ -51,4 +53,50 @@
     padding-right: 10em;
     height: 2.5em;
     float: right;
+}
+
+@media screen and (max-width: 1680px) {
+    .footer {
+        padding-left: 10em;
+        padding-right: 10em;
+    }
+}
+
+@media screen and (max-width: 1480px) {
+    .footer {
+        padding-left: 8em;
+        padding-right: 8em;
+    }
+    .instagram-div {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1180px) {
+    .footer {
+        padding-left: 5em;
+        padding-right: 5em;
+    }
+
+    .first-col {
+        display: none;
+    }
+
+    .payment {
+        display: none;
+    }
+
+    .contact {
+        margin-right: 0px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .footer {
+        padding-left: 0em;
+        padding-right: 0em;
+    }
+ 
+
 }
