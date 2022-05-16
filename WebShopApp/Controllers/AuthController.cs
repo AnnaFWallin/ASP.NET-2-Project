@@ -19,7 +19,10 @@ namespace WebShopApp.Controllers
         //public IActionResult Index(string returnUrl = null!)
         public IActionResult Index()
         {
-                return View();            
+            if(ViewBag.data != null)
+                ViewBag.data = TempData["ErrorMessage"].ToString();
+
+                return View(ViewBag.data);            
         }
 
         [HttpPost]
@@ -33,12 +36,12 @@ namespace WebShopApp.Controllers
                     return RedirectToAction("Index", "Auth");
                 }            
             }
-
             //ModelState.AddModelError(string.Empty, "Invalid username or password");
             //ViewData["ErrorMessage"] = "Username or password was invalid";
-            ViewBag.Error = "Username or password was invalid";
+            TempData["ErrorMessage"] = "Username or password was invalid";
+            //ViewBag.Error = "Username or password was invalid";
 
-            return RedirectToAction("Index", ViewData["ErrorMessage"] = "Username or password was invalid");
+            return RedirectToAction("Index", "Auth");
             //return View(model);
         }
 

@@ -4,6 +4,20 @@
 <form asp-action="Login" >
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+@*@if(ViewBag.Error != null)
+{   
+    <ul>
+    foreach(var error in ViewBag.Error)
+    {
+        <li>@error</li>
+    }
+    </ul>
+}*@
+
+<div>
+    <p>@ViewData["ErrorMessage"]</p>
+</div>
+
 <label asp-for="UserName" class="form-label">Username or Email</label><br />
 <input asp-for="UserName" class="form-controll w-100"> 
 <span asp-validation-for="UserName" class="form-text text-danger"></span><br />
