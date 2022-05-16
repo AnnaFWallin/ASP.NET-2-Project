@@ -153,6 +153,17 @@
     font-size: xx-large;
     font-weight: 700;
 }
+.email-input{
+    border: none; 
+
+}
+.subscribe-button {
+    border-radius: 16px;
+    border: none;
+    background-color: #20D3C2;
+    color: white;
+}
+
 
 .layout-options {
     float: right;
