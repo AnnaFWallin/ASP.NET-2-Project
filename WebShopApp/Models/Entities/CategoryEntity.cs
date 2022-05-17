@@ -9,6 +9,7 @@ namespace WebShopApp.Models.Entities
         [Required]
         public string Name { get; set; }
         public ICollection<ProductEntity> Products { get; set; }
+        public string ImagePreview { get; set; }
 
     }
 }
