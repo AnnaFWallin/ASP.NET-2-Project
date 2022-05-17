@@ -5,6 +5,8 @@
 <form asp-action="Register" >
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+<p class="auth-error">@ViewData["RegisterErrorMessage"]</p>
+
 <label asp-for="UserName" class="form-label">Username</label><br />
 <input asp-for="UserName" class="form-controll w-100"> 
 <span asp-validation-for="UserName" class="form-text text-danger"></span><br />

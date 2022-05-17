@@ -9,20 +9,20 @@ namespace WebShopApp.Controllers
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
-        //private readonly ApplicationDbContext _db;
+        private static string loginErrorMessage = "";
+        private static string registerErrorMessage = "";
 
         public AuthController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
         }
-        //public IActionResult Index(string returnUrl = null!)
+
         public IActionResult Index()
         {
-            if(ViewBag.data != null)
-                ViewBag.data = TempData["ErrorMessage"].ToString();
-
-                return View(ViewBag.data);            
+            ViewData["LoginErrorMessage"] = loginErrorMessage;
+            ViewData["RegisterErrorMessage"] = registerErrorMessage;
+            return View();            
         }
 
         [HttpPost]
@@ -36,13 +36,9 @@ namespace WebShopApp.Controllers
                     return RedirectToAction("Index", "Auth");
                 }            
             }
-            //ModelState.AddModelError(string.Empty, "Invalid username or password");
-            //ViewData["ErrorMessage"] = "Username or password was invalid";
-            TempData["ErrorMessage"] = "Username or password was invalid";
-            //ViewBag.Error = "Username or password was invalid";
+            loginErrorMessage = "Username or password was invalid";
 
             return RedirectToAction("Index", "Auth");
-            //return View(model);
         }
 
         public async Task<IActionResult> Logout()
@@ -77,13 +73,11 @@ namespace WebShopApp.Controllers
 
                     return RedirectToAction("Index", "Auth");
                 }
-
-                foreach (var error in result.Errors)
-                    ModelState.AddModelError(string.Empty, error.Description);      
-            }
-            //return View(form);
-
-            return RedirectToAction("Index");
+                
+                registerErrorMessage = "Username needs to be unique. Email needs to be correct. Passwords must be at least 6 characters, have at least one non alphanumeric character, have at least one digit ('0'-'9') and have at least one uppercase ('A'-'Z')";
+     
+            }            
+            return RedirectToAction("Index", "Auth");
         }
     }
 }

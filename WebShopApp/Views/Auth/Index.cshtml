@@ -1,18 +1,7 @@
 ﻿<link rel="stylesheet" href="~/css/Auth-style.css" />
-
-
 @{
     ViewData["Title"] = "My Account";
 }
-
-@*<div class="container-fluid">
-    <div class="row banner-account">
-        <div class="col-2"></div>
-        <div class="col-10">
-            <h3>My Account</h3>
-        </div>
-    </div>
-</div>*@
 
  <partial name="_MyAccount-Banner" />
  
@@ -48,8 +37,6 @@
 
 }
 else{
-    <div>
-    <p>@ViewBag.data</p>
-</div>
+    
     <partial name="_RegisterOrLogIn" />
 }
