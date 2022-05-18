@@ -117,15 +117,12 @@
 
     .product-item{
         cursor: pointer;
-        width: 100%;
-        height: 100%;
-        min-height: 300px;
-
+        
     }
     
 </style>
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <h2 class="text-center">NEW <span class="accent-title-color">ARRIVALS</span></h2>
     <p class="text-center">Check out our latest products from top fashion designers</p>
     <div id="newsArrivalCarousel" class="carousel">
@@ -144,7 +141,7 @@
                         {
                             <div class="col-4 p-0 text-center">
                                 <div class="card product-item" data-url="@Url.Action("Category", "ShopPage", new {id = Model[i+j].Id})">
-                                    <img src="@Model[i+j].ImgUrl" class="card-img-top" alt="">
+                                    <img src="@Model[i+j].ImgUrl" class="card-img-top col" alt="" height="400">
 
 
                                     <div class="@(Model[i+j].DiscountPrice < @Model[i+j].Price ? "sales" : "d-none") circle-info hot d-flex flex-column">
@@ -171,9 +168,9 @@
                                                 <p class="price-text">@(@Model[i+j].DiscountPrice > 0 ? @Model[i+j].DiscountPrice: @Model[i+j].Price)</p>
 
                                                 <div class="quick-menu">
-                                                    <button type="button" class="btn btn-ligth add-to-cart" data-product-id="@Model[i+j].Id">
+                                                    <a class="btn btn-ligth add-to-cart" asp-controller="ShopPage" asp-action="AddToCart" asp-route-id="@Model[i+j].Id">
                                                         <i class="fa-solid fa-cart-plus"></i>
-                                                    </button>
+                                                    </a>
                                                     <br />
                                                 </div>
                                             </div>
@@ -217,7 +214,6 @@
 
     function onProductClicked(){
         const url = $(this).data("url");
-
         window.location = url;
         return false;
     }
@@ -225,12 +221,8 @@
     function registerAddToCartClickEvent(){
         $(".add-to-cart").on("click", addToCartClicked);
     }
-
     function addToCartClicked(event){
         event.stopPropagation();
-
-        var productId = $(this).data("product-id");
-        console.log(productId);
-        localStorage.setItem("checkouts", productId);
+        return true;
     }
 </script>
