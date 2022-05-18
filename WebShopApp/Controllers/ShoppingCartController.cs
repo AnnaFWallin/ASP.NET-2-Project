@@ -16,5 +16,11 @@ namespace WebShopApp.Controllers
         {
             return View();
         }
+
+        public IActionResult AddToCart(int id)
+        {
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
