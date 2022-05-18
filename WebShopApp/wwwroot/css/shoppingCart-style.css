@@ -39,3 +39,13 @@
     border-radius: 35px;
     font-size: 1.2rem;
 }
+.bold {
+    font-weight: bold;
+}
+
+#btn-remove {
+    border-radius: 0px 30px 30px 0px;
+}
+.cart-quantity:hover {
+    background-color: #20D3C2;
+}
