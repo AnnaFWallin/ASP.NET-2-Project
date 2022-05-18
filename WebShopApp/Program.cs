@@ -24,6 +24,15 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddScoped<IProductService, ProductService>();
 //Repositories
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+//Session
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(x =>
+{
+    x.IdleTimeout = TimeSpan.FromDays(30);
+    x.Cookie.HttpOnly = true;
+    x.Cookie.IsEssential = true;
+    x.Cookie.Name = "ShoppingCart";
+});
 
 
 builder.Services.AddControllersWithViews();
@@ -56,6 +65,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
