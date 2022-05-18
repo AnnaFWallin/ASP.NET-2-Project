@@ -17,7 +17,7 @@
           <div class="card-body p-0">
             <div class="row ">
               <div class="col-lg-8">
-                <div class="p-5">
+                <div class="p-2">
                   
 
                   @*Product/Price/Quantity/Subtotal*@
@@ -57,14 +57,15 @@
 
                     @*Remove-btn*@
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a class="text-muted" asp-controller="ShoppingCart" asp-action="RemoveFromCart" asp-route-id="@item.Product.Id"><i class="fas fa-times"></i></a>
+                      <a class="btn" 
+                      asp-controller="ShoppingCart" asp-action="RemoveItemFromCart" asp-route-id="@item.Product.Id"><i class="fas fa-times"></i></a>
                     </div>
 
                     @*Product-pic-name*@
                     <div class="col-md-1 col-lg-1 col-xl-1">
                       <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp"
-                        class="img-fluid rounded-3" alt="Cotton T-shirt">
+                        src="@item.Product.ImgUrl"
+                        class="img-fluid rounded-3" alt="product-img">
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-3">                      
                       <h6 class="text-black mb-0">@item.Product.Name</h6>
@@ -78,23 +79,26 @@
                     @*Amount-btns*@
 
                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                      <button class="btn btn-link px-2"
-                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                      <a class="btn btn-link px-2"
+                        asp-controller="ShoppingCart" asp-action="RemoveFromCart" asp-route-id="@item.Product.Id">
                         <i class="fas fa-minus"></i>
-                      </button>
+                      </a>
 
-                      <input id="form1" min="0" name="quantity" value="1" type="number"
+                      <input id="item-quantity" min="0" name="quantity" value="@item.Quantity" type="number"
                         class="form-control form-control-sm" />
 
-                      <button class="btn btn-link px-2"
-                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                      <a class="btn btn-link px-2"
+                        asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-id="@item.Product.Id">
                         <i class="fas fa-plus"></i>
-                      </button>
+                      </a>
                     </div>
 
                     @*Subtotal*@
+                           @{
+                                 var subtotal = @item.Quantity * @item.Product.PriceUSD;
+                            }
                     <div class="col-md-2 col-lg-2 col-xl-2 text-end">
-                      <p class="Cart-titel">Subtotal</p>
+                      <p class="Cart-titel">@subtotal</p>
                     </div>
                   </div>
 
