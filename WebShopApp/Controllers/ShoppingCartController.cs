@@ -19,7 +19,8 @@ namespace WebShopApp.Controllers
             ShoppingCartModel shoppingCart;
             try { shoppingCart = JsonConvert.DeserializeObject<ShoppingCartModel>(HttpContext.Session.GetString("ShoppingCart")); }
             catch { shoppingCart = new ShoppingCartModel(); }
-            return View();
+
+            return View(shoppingCart);
         }
 
         public async Task<IActionResult> AddToCart(int id)

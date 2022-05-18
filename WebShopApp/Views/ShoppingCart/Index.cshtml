@@ -4,6 +4,9 @@
     ViewData["Title"] = "ShoppingCart";
 }
 
+@Model.TotalPrice :-
+@Model.TotalQuantity stycken
+
 <section class="h-100 h-custom">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -39,7 +42,7 @@
                   </div>
 
 
-        if(Model.ShoppingCart.Count >0){
+       
 
         
                  @foreach(var item in Model.ShoppingCart)
@@ -94,7 +97,7 @@
                   </div>
 
                     }
-                    }
+                    
 
 
 
