@@ -6,8 +6,6 @@
 
 <partial name="_Banner-ShoppingCart" />
 
-@Model.TotalPrice :-
-@Model.TotalQuantity stycken
 
 <section class="h-100 h-custom">
   <div class="container py-5 h-100">
@@ -106,8 +104,6 @@
                     
 
 
-
-
                   <div class="col-md-2 col-lg-2 col-xl-2 text-end pt-5">
                     <h6 class="mb-0"><a href="#!" class="text-body"><i
                           class="fas fa-long-arrow-alt-left me-2"></i>Update cart</a></h6>
@@ -116,10 +112,47 @@
               </div>
 
 
+
+
+
+
+                    @*CheckoutInfo*@
+
               <div class="col-lg-4 bg-grey">
                 <div class="p-5">
-                  <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
-                  <hr class="my-4">
+                    <div class="d-flex justify-content-center py-3" id="title-cartTotals">
+                        <h4 class="">CART TOTALS</h4>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-4">
+                        <p>Subtotal</p>
+                        <p>@Model.TotalPrice</p>
+                    </div>
+                    <hr />
+                    <div>
+                      <p>Flat rate: $20.00</p>
+                      <p>Free shipping</p>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <p>Shipping</p>
+                        <p>Local pickup: $25.00</p>
+                    </div>
+                    <div>
+                        <p>Shipping to AL.</p>
+                        <p>Change address</p>
+                    </div>
+                    <hr />
+                    <div class="d-flex justify-content-between mb-4">
+                        <p>TOTAL</p>
+                                        @{
+                                            var pricePlusShipping = @Model.TotalPrice + 20;
+                                        }
+                        <p>@pricePlusShipping</p>
+                    </div>
+
+                    <a class="btn theme-bg text-white px-4 w-100 py-3" id="btn-to-checkout">PROCEEED TO CHECKOUT</a>
+
+                  @*<hr class="my-4">
 
                   <div class="d-flex justify-content-between mb-4">
                     <h5 class="text-uppercase">items 3</h5>
@@ -154,7 +187,7 @@
                   </div>
 
                   <button type="button" class="btn btn-dark btn-block btn-lg"
-                    data-mdb-ripple-color="dark">Register</button>
+                    data-mdb-ripple-color="dark">Register</button>*@
 
                 </div>
               </div>
