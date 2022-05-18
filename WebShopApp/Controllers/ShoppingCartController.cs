@@ -16,6 +16,9 @@ namespace WebShopApp.Controllers
 
         public IActionResult Index()
         {
+            ShoppingCartModel shoppingCart;
+            try { shoppingCart = JsonConvert.DeserializeObject<ShoppingCartModel>(HttpContext.Session.GetString("ShoppingCart")); }
+            catch { shoppingCart = new ShoppingCartModel(); }
             return View();
         }
 
