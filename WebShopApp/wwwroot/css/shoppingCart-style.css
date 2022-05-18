@@ -1,0 +1,16 @@
+﻿body {
+}
+
+.banner-shoppingCart {
+    background-color: #AAAAAA;
+    color: #20D3C2;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cart-titel {
+    color: #0E153D;
+    font-weight: bold;
+}

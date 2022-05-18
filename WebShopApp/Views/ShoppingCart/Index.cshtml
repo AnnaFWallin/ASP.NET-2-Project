@@ -1,5 +1,5 @@
 ﻿@model WebShopApp.Models.ShoppingCartModel
-
+<link rel="stylesheet" href="~/css/shoppingCart-style.css" />
 @{
     ViewData["Title"] = "ShoppingCart";
 }
@@ -11,7 +11,7 @@
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12">
-        <div class="card card-registration card-registration-2">
+        <div class="card card-registration card-registration-2 border-0">
           <div class="card-body p-0">
             <div class="row ">
               <div class="col-lg-8">
@@ -25,19 +25,19 @@
                     </div>
 
                     <div class="col-md-3 col-lg-3 col-xl-3">
-                      <p class="Cart-titel">Product</p>
+                      <p class="cart-titel">Product</p>
                     </div>
 
                     <div class="col-md-2 col-lg-2 col-xl-2 d-flex">
-                      <p class="Cart-titel">Price</p>
+                      <p class="cart-titel">Price</p>
                     </div>
 
                     <div class="col-md-2 col-lg-2 col-xl-2">
-                      <p class="Cart-titel">Quantity</p>
+                      <p class="cart-titel">Quantity</p>
                     </div>
 
                     <div class="col-md-2 col-lg-2 col-xl-2 text-end">
-                      <p class="Cart-titel">Subtotal</p>
+                      <p class="cart-titel">Subtotal</p>
                     </div>
                   </div>
 
@@ -55,7 +55,7 @@
 
                     @*Remove-btn*@
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                      <a class="text-muted" asp-controller="ShoppingCart" asp-action="RemoveFromCart" asp-route-id="@item.Product.Id"><i class="fas fa-times"></i></a>
                     </div>
 
                     @*Product-pic-name*@
