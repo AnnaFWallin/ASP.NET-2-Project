@@ -14,3 +14,17 @@
     color: #0E153D;
     font-weight: bold;
 }
+
+.cart-titel-theme {
+    color: #20D3C2;
+    font-weight: bold;
+}
+
+.theme-color {
+    color: #20D3C2;
+}
+
+#hr-cart {
+    height: 5px;
+    color: #20D3C2;
+}
