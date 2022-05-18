@@ -22,7 +22,6 @@
         }
         public decimal TotalPrice
         {
-
             get
             {
                 decimal _totalPrice = 0;
