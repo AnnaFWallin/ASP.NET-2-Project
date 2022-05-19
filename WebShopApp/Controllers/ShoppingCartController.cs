@@ -51,20 +51,13 @@ namespace WebShopApp.Controllers
             var shoppingCart = new ShoppingCartModel();
             var cartSession = HttpContext.Session.GetString("ShoppingCart");
 
-            if (!string.IsNullOrEmpty(cartSession))
-            {
-                shoppingCart = JsonConvert.DeserializeObject<ShoppingCartModel>(cartSession);
+            shoppingCart = JsonConvert.DeserializeObject<ShoppingCartModel>(cartSession);
 
-                var index = shoppingCart.ShoppingCart.FindIndex(x => x.Product.Id == id);
-                if (shoppingCart.ShoppingCart[index].Quantity > 1)
-                    shoppingCart.ShoppingCart[index].Quantity -= 1;
-                else
-                    shoppingCart.ShoppingCart.Remove(shoppingCart.ShoppingCart[index]);
-            }
+            var index = shoppingCart.ShoppingCart.FindIndex(x => x.Product.Id == id);
+            if (shoppingCart.ShoppingCart[index].Quantity > 1)
+                shoppingCart.ShoppingCart[index].Quantity -= 1;
             else
-            {
-                shoppingCart.ShoppingCart.Remove(shoppingCart.ShoppingCart[id]);
-            }
+                shoppingCart.ShoppingCart.Remove(shoppingCart.ShoppingCart[index]);
 
             HttpContext.Session.SetString("ShoppingCart", JsonConvert.SerializeObject(shoppingCart));
             return RedirectToAction("Index", "ShoppingCart");
@@ -74,18 +67,10 @@ namespace WebShopApp.Controllers
             var shoppingCart = new ShoppingCartModel();
             var cartSession = HttpContext.Session.GetString("ShoppingCart");
 
-            if (!string.IsNullOrEmpty(cartSession))
-            {
-                shoppingCart = JsonConvert.DeserializeObject<ShoppingCartModel>(cartSession);
+            shoppingCart = JsonConvert.DeserializeObject<ShoppingCartModel>(cartSession);
 
-                var index = shoppingCart.ShoppingCart.FindIndex(x => x.Product.Id == id);
-
-                shoppingCart.ShoppingCart.Remove(shoppingCart.ShoppingCart[index]);
-            }
-            else
-            {
-                shoppingCart.ShoppingCart.Remove(shoppingCart.ShoppingCart[id]);
-            }
+            var index = shoppingCart.ShoppingCart.FindIndex(x => x.Product.Id == id);
+            shoppingCart.ShoppingCart.Remove(shoppingCart.ShoppingCart[index]);
 
             HttpContext.Session.SetString("ShoppingCart", JsonConvert.SerializeObject(shoppingCart));
             return RedirectToAction("Index", "ShoppingCart");

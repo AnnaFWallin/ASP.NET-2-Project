@@ -1,7 +1,7 @@
 ﻿@model WebShopApp.Models.ShoppingCartModel
 <link rel="stylesheet" href="~/css/shoppingCart-style.css" />
 @{
-    ViewData["Title"] = "ShoppingCart";
+    ViewData["Title"] = "Shopping Cart";
 }
 
 <partial name="_Banner-ShoppingCart" />
@@ -96,9 +96,10 @@
                                  var subtotal = @item.Quantity * @item.Product.PriceUSD;
                             }
                     <div class="col-md-2 col-lg-2 col-xl-2 text-end">
-                      <p class="Cart-titel">@subtotal</p>
+                      <p class="Cart-titel">$@subtotal</p>
                     </div>
                   </div>
+                  <hr />
 
                     }              
 
@@ -124,7 +125,7 @@
 
                     <div class="d-flex justify-content-between mb-4">
                         <p class="bold">Subtotal</p>
-                        <p>@Model.TotalPrice</p>
+                        <p>$@Model.TotalPrice</p>
                     </div>
                     <hr />
                     
@@ -139,7 +140,7 @@
                                         @{
                                             var pricePlusShipping = @Model.TotalPrice + 20;
                                         }
-                        <p>@pricePlusShipping</p>
+                        <p>$@pricePlusShipping</p>
                     </div>
 
                     <a asp-controller="Checkout" asp-action="Index"
