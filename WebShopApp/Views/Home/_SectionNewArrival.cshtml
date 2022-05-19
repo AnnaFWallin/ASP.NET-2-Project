@@ -1,126 +1,6 @@
 ﻿@model List<ArrivalModel>
+<link rel="stylesheet" href="~/css/section-new-arrival.css" />
 
-<style>
-    #newsArrivalCarousel .card-body:hover {
-        display: none;
-        top: 0;
-        max-height: inherit;
-    }
-
-    #newsArrivalCarousel .card {
-        background-color: transparent;
-    }
-
-        #newsArrivalCarousel .card > img {
-            position: relative;
-            z-index: -1;
-        }
-
-    #newsArrivalCarousel .card-body {
-        background: #0E153D;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        max-height: 51px;
-        transition: 0.5s;
-        z-index: 5;
-    }
-
-        #newsArrivalCarousel .card-body:hover .extra-info {
-            visibility: visible;
-            
-        }
-
-        #newsArrivalCarousel .card-body .extra-info {
-            visibility: hidden;
-        }
-
-    #newsArrivalCarousel .custom-row {
-        margin: 0;
-    }
-
-    #newsArrivalCarousel .carousel-control-prev {
-        justify-content: left;
-        margin-left: -40px;
-        z-index: 1;
-    }
-
-    #newsArrivalCarousel .carousel-control-next {
-        justify-content: right;
-        margin-right: -40px;
-        z-index: 1;
-    }
-
-
-    #newsArrivalCarousel .carousel-control-prev-icon,
-    #newsArrivalCarousel .carousel-control-next-icon {
-        height: 64px;
-        width: 64px;
-        outline: #20D3C2;
-        background-size: 50%, 50%;
-        border-radius: 50%;
-        border: 1px solid #20D3C2;
-        background-color: #20D3C2;
-    }
-
-    #newsArrivalCarousel .price-text {
-        color: #20D3C2;
-        font-size: 24px;
-    }
-
-    #newsArrivalCarousel .circle-info {
-        height: 60px;
-        width: 60px;
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        border-radius: 30px;
-        font-size: 16px;
-        color: #FFF;
-    }
-
-    #newsArrivalCarousel .hot {
-        background-color: #FE4545;
-    }
-
-    #newsArrivalCarousel .sales {
-        background-color: #64CB83;
-    }
-
-    #newsArrivalCarousel a.disabled {
-        pointer-events: none;
-    }
-
-        #newsArrivalCarousel a.disabled > .carousel-control-prev-icon {
-            color: grey;
-            border: 1px solid grey;
-            background-color: grey;
-        }
-
-        #newsArrivalCarousel a.disabled > .carousel-control-next-icon {
-            color: grey;
-            border: 1px solid grey;
-            background-color: grey;
-        }
-
-    #newsArrivalCarousel .quick-menu {
-        position: absolute;
-        border: 1px solid #DDD;
-        background-color: #FFFFFF;
-        top: 10px;
-        right: 10px;
-        width: 47px;
-        border-radius: 25px;
-        z-index: 2;
-    }
-
-    .product-item{
-        cursor: pointer;
-        
-    }
-    
-</style>
 
 <div class="container mt-5 mb-5">
     <h2 class="text-center">NEW <span class="accent-title-color">ARRIVALS</span></h2>
@@ -141,7 +21,7 @@
                         {
                             <div class="col-4 p-0 text-center">
                                 <div class="card product-item" data-url="@Url.Action("Category", "ShopPage", new {id = Model[i+j].Id})">
-                                    <img src="@Model[i+j].ImgUrl" class="card-img-top col" alt="" height="400">
+                                    <img src="@Model[i+j].ImgUrl" class="card-img-top col img-fluid" alt="" height="300">
 
 
                                     <div class="@(Model[i+j].DiscountPrice < @Model[i+j].Price ? "sales" : "d-none") circle-info hot d-flex flex-column">
