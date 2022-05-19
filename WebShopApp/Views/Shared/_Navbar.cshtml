@@ -50,9 +50,11 @@
         <div class="col-4 d-flex align-items-center">
             <a class="text-decoration-none text-darkblue" asp-controller="Auth" asp-action="Index"><i class="fa-solid fa-user text-darkblue"></i> My Account</a>
             <a asp-controller="Wishlist" asp-action="Index"><i class="fa-solid fa-heart p-4 text-darkblue hover-gray"></i></a>
-            <a class="text-decoration-none text-darkblue" asp-controller="ShoppingCart" asp-action="Index" ><i class="fa-solid fa-bag-shopping p-1 text-darkblue"></i>$</a>
+            <a class="text-decoration-none text-darkblue" asp-controller="ShoppingCart" asp-action="Index" ><i class="fa-solid fa-bag-shopping p-1 text-darkblue"></i>$<span id="totalPrice"></span></a>
         </div>
     </div>
+
+    
     
 
     <!-- navbar bottom-->
@@ -114,3 +116,10 @@
         <div class="col-2"></div>  
     </div>
 </div>
+
+@*<script>
+    let localStorage = window['localStorage'];  
+    let shoppingCart = JSON.parse(localStorage.getItem('ShoppingCart'));
+    document.getElementById('totalQuantity').innerText = shoppingCart.TotalQuantity
+    document.getElementById('totalPrice').innerText = shoppingCart.TotalPrice
+    </script>*@

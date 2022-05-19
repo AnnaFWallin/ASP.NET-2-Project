@@ -45,6 +45,9 @@ namespace WebShopApp.Controllers
 
             HttpContext.Session.SetString("ShoppingCart", JsonConvert.SerializeObject(shoppingCart));
             return RedirectToAction("Index", "ShoppingCart");
+
+            //ViewData["ShoppingCart"] = HttpContext.Session.GetString("ShoppingCart");
+            //return View();
         }
         public async Task<IActionResult> RemoveFromCart(int id)
         {

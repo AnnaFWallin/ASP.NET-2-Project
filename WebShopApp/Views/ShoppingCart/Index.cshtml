@@ -137,9 +137,14 @@
                     <hr />
                     <div class="d-flex justify-content-between mb-4">
                         <p class="bold">TOTAL</p>
-                                        @{
-                                            var pricePlusShipping = @Model.TotalPrice + 20;
-                                        }
+                                            @{
+                                                var pricePlusShipping = @Model.TotalPrice + 20;
+
+                                                if(pricePlusShipping.Equals(20))
+                                                {
+                                                    pricePlusShipping = 0;
+                                                }
+                                            }
                         <p>$@pricePlusShipping</p>
                     </div>
 
