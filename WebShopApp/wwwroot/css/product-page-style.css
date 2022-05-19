@@ -1,0 +1,21 @@
+﻿.text-turquoise {
+    color: #20D3C2;
+}
+
+.header {
+    height: 8em;
+    background-color: #0E153D;
+    padding-left: 18em;
+    padding-right: 18em;
+    padding-top: 3.2em;
+    color: white;
+    font-size: small;
+    display: block;
+}
+
+.brand-picture {
+    height: 2.3em;
+    float: right;
+    display: block;
+    border-radius: 8%; 
+}

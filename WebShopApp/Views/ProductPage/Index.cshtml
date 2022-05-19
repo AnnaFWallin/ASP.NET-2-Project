@@ -1,0 +1,14 @@
+﻿<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="~/css/product-page-style.css" />
+
+
+<div class="section">
+    <div class="header">
+         <a asp-controller="Home" asp-action="Index" class="text-decoration-none text-turquoise">Home</a> / 
+         <a asp-controller="ShopPage" asp-action="Index" class="text-decoration-none text-turquoise">Shop</a> / 
+         <a asp-controller="ShopPage" asp-action="Category" asp-route-id="@ViewBag.Product.CategoryId" class="text-decoration-none text-turquoise">@ViewBag.Product.Category.Name</a> /
+         @ViewBag.Product.Name
+         <img class="brand-picture" src="@Url.Content("~/images/" + @ViewBag.Product.Brand.Name.ToLower() + ".png")">
+    </div>
+
+</div>
