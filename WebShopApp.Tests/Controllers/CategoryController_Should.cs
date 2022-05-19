@@ -20,7 +20,7 @@ namespace WebShopApp.Tests
             // Arrange 
             var categoryServiceMock = new Mock<ICategoryService>();
             categoryServiceMock.Setup(x => x.GetAsync(CancellationToken.None))
-                .ReturnsAsync(CategoryFixtures.GetTestCategoriesEntity());
+                .ReturnsAsync(CategoryFixtures.GetTestCategories());
 
             var sut = new CategoryController(categoryServiceMock.Object);
 
