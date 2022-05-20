@@ -1,0 +1,10 @@
+﻿<div class="section">
+    <div class="header">
+         <a asp-controller="Home" asp-action="Index" class="text-decoration-none text-turquoise">Home</a> / 
+         <a asp-controller="ShopPage" asp-action="Index" class="text-decoration-none text-turquoise">Shop</a> / 
+         <a asp-controller="ShopPage" asp-action="Category" asp-route-id="@ViewBag.Product.CategoryId" class="text-decoration-none text-turquoise">@ViewBag.Product.Category.Name</a> /
+         @ViewBag.Product.Name
+         <a asp-controller="ShopPage" asp-action="Index" class="text-decoration-none text-turquoise"><img class="backtoshop-picture" src="@Url.Content("~/images/b.png")"></a>
+         <a asp-controller="ShopPage" asp-action="Brand" asp-route-id="@ViewBag.Product.BrandId"><img class="brand-picture" src="@Url.Content("~/images/" + @ViewBag.Product.Brand.Name.ToLower() + ".png")"></a>
+    </div>
+</div>

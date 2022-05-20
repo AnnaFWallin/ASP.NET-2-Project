@@ -2,6 +2,10 @@
     color: #20D3C2;
 }
 
+.product-info-section{
+    height: 55em; 
+}
+
 .header {
     height: 8em;
     background-color: #0E153D;
@@ -11,11 +15,34 @@
     color: white;
     font-size: small;
     display: block;
+    margin-bottom: 5em;
 }
 
+
+.product-info {
+    display: block;
+    padding-left: 18em; 
+    padding-right: 18em; 
+}
 .brand-picture {
     height: 2.3em;
     float: right;
     display: block;
-    border-radius: 8%; 
+    border-radius: 8%;
+    margin-right: 1.5em;
 }
+
+.backtoshop-picture {
+    height: 2.3em;
+    float: right;
+    display: block;
+}
+.images{
+    float:left; 
+}
+
+.product-section {
+    padding-left: 18em;
+    padding-right: 18em;
+}
+
