@@ -1,4 +1,4 @@
-﻿@*@model WebShopApp.Models.ShoppingCartModel*@
+﻿@*@model WebShopApp.Models.HomeIndexViewModel*@
 <link rel="stylesheet" href="~/css/navbar-style.css" />
 
 <div class="container-fluid">
@@ -50,7 +50,7 @@
         <div class="col-4 d-flex align-items-center">
             <a class="text-decoration-none text-darkblue" asp-controller="Auth" asp-action="Index"><i class="fa-solid fa-user text-darkblue"></i> My Account</a>
             <a asp-controller="Wishlist" asp-action="Index"><i class="fa-solid fa-heart p-4 text-darkblue hover-gray"></i></a>
-            <a class="text-decoration-none text-darkblue" asp-controller="ShoppingCart" asp-action="Index" ><i class="fa-solid fa-bag-shopping p-1 text-darkblue"></i>$<span id="totalPrice"></span></a>
+            <a class="text-decoration-none text-darkblue" asp-controller="ShoppingCart" asp-action="Index" ><i class="fa-solid fa-bag-shopping p-1 text-darkblue"></i>$Cart<span id="totalPrice"></span></a>
         </div>
     </div>
 

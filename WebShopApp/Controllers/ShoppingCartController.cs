@@ -16,11 +16,15 @@ namespace WebShopApp.Controllers
 
         public IActionResult Index()
         {
+            var viewModel = new HomeIndexViewModel();
+
             ShoppingCartModel shoppingCart;
             try { shoppingCart = JsonConvert.DeserializeObject<ShoppingCartModel>(HttpContext.Session.GetString("ShoppingCart")); }
             catch { shoppingCart = new ShoppingCartModel(); }
 
-            return View(shoppingCart);
+            viewModel.ShoppingCart = shoppingCart;
+
+            return View(viewModel);
         }
 
         public async Task<IActionResult> AddToCart(int id)
@@ -44,6 +48,7 @@ namespace WebShopApp.Controllers
             }
 
             HttpContext.Session.SetString("ShoppingCart", JsonConvert.SerializeObject(shoppingCart));
+
             return RedirectToAction("Index", "ShoppingCart");
 
             //ViewData["ShoppingCart"] = HttpContext.Session.GetString("ShoppingCart");
