@@ -1,4 +1,4 @@
-﻿@model WebShopApp.Models.HomeIndexViewModel
+﻿@model WebShopApp.Models.ShoppingCartModel
 <link rel="stylesheet" href="~/css/shoppingCart-style.css" />
 @{
     ViewData["Title"] = "Shopping Cart";
@@ -45,7 +45,7 @@
        
 
         
-                 @foreach(var item in Model.ShoppingCart.ShoppingCart)
+                 @foreach(var item in Model.ShoppingCart)
                  {                                        
 
                   @*Product*@
@@ -125,7 +125,7 @@
 
                     <div class="d-flex justify-content-between mb-4">
                         <p class="bold">Subtotal</p>
-                        <p>$@Model.ShoppingCart.TotalPrice</p>
+                        <p>$@Model.TotalPrice</p>
                     </div>
                     <hr />
                     
@@ -138,7 +138,7 @@
                     <div class="d-flex justify-content-between mb-4">
                         <p class="bold">TOTAL</p>
                                             @{
-                                                var pricePlusShipping = @Model.ShoppingCart.TotalPrice + 20;
+                                                var pricePlusShipping = @Model.TotalPrice + 20;
 
                                                 if(pricePlusShipping.Equals(20))
                                                 {
