@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebShopApp.Models;
 using WebShopApp.Services;
 
 namespace WebShopApp.Controllers
@@ -14,7 +15,10 @@ namespace WebShopApp.Controllers
 
         public async Task<IActionResult> Index(int id)
         {
-            return View(ViewBag.Product = await _service.GetProductById(id));
+            var productViewModel = new ProductViewModel();
+
+            productViewModel.Product = await _service.GetProductById(id);
+            return View(ViewBag.Product = productViewModel.Product);
         }
     }
 }

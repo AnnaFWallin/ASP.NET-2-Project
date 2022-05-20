@@ -45,4 +45,37 @@
     padding-left: 18em;
     padding-right: 18em;
 }
+.text-section{
+    margin-left: 50em; 
+}
 
+.product-title {
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+.price-info {
+    font-size: 1.5em;
+    font-weight: bolder;
+
+}
+
+.instock-picture {
+    float:right;
+    padding-top: 0em; 
+    height: 2.3em;
+}
+.mini-pictures {
+    float: right;
+}
+.pp-addtocart {
+    margin-top: 1em;
+    border-radius: 16px;
+    background-color: #20D3C2;
+    color: white;
+    border: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}

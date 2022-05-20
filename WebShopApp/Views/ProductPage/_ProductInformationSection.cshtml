@@ -1,0 +1,26 @@
+﻿<div class="product-info">
+    <section class="images">
+        <img class="big-picture" src="@Url.Content("~/images/shoesdummydeluxe.png")">
+
+    </section>
+    <div class="text-section">
+        <span class="text-turquoise product-title">@ViewBag.Product.Name</span><br />
+        <span class="about">
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        </span>
+        <hr />
+        <span class="price-info text-turquoise">€ @ViewBag.Product.PriceUSD</span> @if (@ViewBag.Product.Amount > 0)
+        {
+            <img class="instock-picture" src="@Url.Content("~/images/instock.png")">
+        }
+        <br /><br />
+        <button class="pp-addtocart">Add to cart</button>
+        <div class="mini-pictures">
+            <img class="mini-picture" src="@Url.Content("~/images/color.png")">
+            <img class="mini-picture" src="@Url.Content("~/images/shuffle.png")">
+            <img class="mini-picture" src="@Url.Content("~/images/wishlist.png")">
+        </div><br /><br />
+        <span>Category: <a asp-controller="ShopPage" asp-action="Category" asp-route-id="@ViewBag.Product.CategoryId" class="text-decoration-none text-turquoise">@ViewBag.Product.Category.Name</a></span>
+
+    </div>
+</div>
