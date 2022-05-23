@@ -34,8 +34,7 @@
     color: #20D3C2;
     border-radius: 10px;
 }
-#btn-to-checkout {
-    
+#btn-to-checkout {    
     border-radius: 35px;
     font-size: 1.2rem;
 }
@@ -46,6 +45,18 @@
 #btn-remove {
     border-radius: 0px 30px 30px 0px;
 }
-.cart-quantity:hover {
+
+.cart-quantity:hover{
     background-color: #20D3C2;
+}
+
+#btn-shop-more{
+    background-color: #0E153D;
+    color: #FFFFFF;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+#cart-to-checkout-card {
+    border: dotted #0E153D;
 }
