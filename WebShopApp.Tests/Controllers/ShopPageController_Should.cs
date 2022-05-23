@@ -9,11 +9,11 @@ using Xunit;
 
 namespace WebShopApp.Tests
 {
-    public class ProductsController_Should
+    public class ShopPageController_Should
     {
 
         [Fact]
-        public async Task ProductsController_Should_Return_ViewResult()
+        public async Task ShopPageController_Should_Return_ViewResult()
         {
             // Arrange 
             var mockProductService = new Mock<IProductService>();
