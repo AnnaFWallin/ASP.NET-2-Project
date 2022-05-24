@@ -1,0 +1,24 @@
+﻿.productpage-nav {
+    background-color: #0E153D;
+    padding-left: 18em;
+    padding-right: 18em;
+    height: 7em; 
+    width: auto;
+    color: white;
+    font-size: small;
+    margin-bottom: 3em;
+    padding-top: 2.5em;
+}
+
+.text-turquoise {
+    color: #20D3C2;
+}
+
+.picture{
+    float:right;
+}
+
+.brand-picture{
+    height: 3em; 
+    border-radius: 7%;
+}
