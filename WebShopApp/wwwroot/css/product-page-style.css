@@ -134,4 +134,7 @@
     display: none; 
     }
 
+.brand-picture{
+    height: 3em; 
+    border-radius: 7%;
 }

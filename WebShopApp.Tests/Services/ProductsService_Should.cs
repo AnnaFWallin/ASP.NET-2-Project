@@ -2,8 +2,8 @@
 using Moq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using WebShopApp.Interfaces;
 using WebShopApp.Models;
-using WebShopApp.Services;
 using WebShopApp.Tests.Fixtures;
 using Xunit;
 
@@ -12,7 +12,7 @@ namespace WebShopApp.Tests.Services
     public class ProductsService_Should
     {
         [Fact]
-        public async Task ProductService_Should_Return_Type_Products()
+        public async Task ProductService_Should_Return_Type_Products() //Olivias test
         {
             // Arrange
             var sut = new Mock<IProductService>();
@@ -25,7 +25,7 @@ namespace WebShopApp.Tests.Services
         }
 
         [Fact]
-        public async Task GetAllProducts_Returns_ListOfProducts()
+        public async Task GetAllProducts_Returns_ListOfProducts() //Olivias test
         {
             // Arrange
             var sut = new Mock<IProductService>();
