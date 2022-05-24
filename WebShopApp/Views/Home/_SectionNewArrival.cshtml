@@ -1,0 +1,201 @@
+﻿@model List<ArrivalModel>
+
+<style>
+    #newsArrivalCarousel .card-body:hover {
+        /*display: none;*/
+        top: 0;
+        max-height: inherit;
+    }
+
+    #newsArrivalCarousel .card {
+        background-color: transparent;
+    }
+
+        #newsArrivalCarousel .card > img {
+            position: relative;
+            z-index: -1;
+        }
+
+    #newsArrivalCarousel .card-body {
+        background: #0E153D;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 51px;
+    }
+
+        #newsArrivalCarousel .card-body:hover .extra-info {
+            visibility: visible;
+        }
+
+        #newsArrivalCarousel .card-body .extra-info {
+            visibility: hidden;
+        }
+
+    #newsArrivalCarousel .custom-row {
+        margin: 0;
+    }
+
+    #newsArrivalCarousel .carousel-control-prev {
+        justify-content: left;
+        margin-left: -40px;
+    }
+
+    #newsArrivalCarousel .carousel-control-next {
+        justify-content: right;
+        margin-right: -40px;
+    }
+
+
+    #newsArrivalCarousel .carousel-control-prev-icon,
+    #newsArrivalCarousel .carousel-control-next-icon {
+        height: 64px;
+        width: 64px;
+        outline: #20D3C2;
+        background-size: 50%, 50%;
+        border-radius: 50%;
+        border: 1px solid #20D3C2;
+        background-color: #20D3C2;
+    }
+
+    #newsArrivalCarousel .price-text {
+        color: #20D3C2;
+        font-size: 24px;
+    }
+
+    #newsArrivalCarousel .circle-info {
+        height: 60px;
+        width: 60px;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        border-radius: 30px;
+        font-size: 16px;
+        color: #FFF;
+    }
+
+    #newsArrivalCarousel .hot {
+        background-color: #FE4545;
+    }
+
+    #newsArrivalCarousel .sales {
+        background-color: #64CB83;
+    }
+
+    #newsArrivalCarousel a.disabled {
+        pointer-events: none;
+    }
+
+        #newsArrivalCarousel a.disabled > .carousel-control-prev-icon {
+            color: grey;
+            border: 1px solid grey;
+            background-color: grey;
+        }
+
+        #newsArrivalCarousel a.disabled > .carousel-control-next-icon {
+            color: grey;
+            border: 1px solid grey;
+            background-color: grey;
+        }
+
+    #newsArrivalCarousel .quick-menu {
+        position: absolute;
+        border: 1px solid #DDD;
+        background-color: #FFFFFF;
+        top: 10px;
+        right: 10px;
+        width: 47px;
+        border-radius: 25px;
+    }
+</style>
+
+<div class="container mt-5">
+    <h2 class="text-center">NEW <span class="accent-title-color">ARRIVALS</span></h2>
+    <p class="text-center">Check out our latest products from top fashion designers</p>
+    <div id="newsArrivalCarousel" class="carousel">
+        @{
+            var first = true;
+        }
+        <div class="carousel-inner">
+
+
+            @for (var i = 0; i < Model.Count(); i = i + 3)
+            {
+                <div class="carousel-item @(first ? "active" :"")">
+                    <div class="row m-0">
+
+                        @for (var j = 0; j < 3 && i + j < Model.Count; j++)
+                        {
+                            <div class="col-4 p-0 text-center">
+                                <div class="card">
+                                    <img src="https://via.placeholder.com/350x350" class="card-img-top" alt="...">
+
+
+                                    <div class="@(Model[i+j].DiscountPrice < @Model[i+j].Price ? "sales" : "d-none") circle-info hot d-flex flex-column">
+                                        @{
+
+                                            int percentagedecrease = (int)(((Model[i + j].Price - Model[i + j].DiscountPrice) / Model[i + j].Price) * 100);
+                                        }
+
+
+                                        <span class="my-auto">@percentagedecrease %</span>
+                                    </div>
+
+                                    <div class="@(Model[i+j].HotSale ? "hot" : "d-none") circle-info hot d-flex flex-column">
+                                        <span class="my-auto">HOT</span>
+                                    </div>
+
+                                    <div class="card-body text-light text-start d-flex flex-column">
+                                        <div class="mt-auto">
+                                            <h5>@Model[i+j].Name</h5>
+
+                                            <div class="extra-info">
+                                                <p>@Model[i+j].Category</p>
+                                                <p class="@(@Model[i+j].DiscountPrice < @Model[i+j].Price ? "text-decoration-line-through" :"d-none")">@Model[i+j].Price</p>
+                                                <p class="price-text">@(@Model[i+j].DiscountPrice > 0 ? @Model[i+j].DiscountPrice: @Model[i+j].Price)</p>
+
+                                                <div class="quick-menu">
+                                                    <button type="button" class="btn btn-ligth add-to-cart" data-product-id="@Model[i+j].Id">
+                                                        <i class="fa-solid fa-cart-plus"></i>
+                                                    </button>
+                                                    <br />
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            first = false;
+                        }
+                    </div>
+                </div>
+            }
+
+
+        </div>
+        <a class="carousel-control-prev" href="#newsArrivalCarousel" role="button" data-slide="prev" data-bs-target="#newsArrivalCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#newsArrivalCarousel" role="button" data-slide="next" data-bs-target="#newsArrivalCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function (){
+        $(".add-to-cart").on("click", function(){
+            var productId = $(this).data("product-id");
+            console.log(productId);
+            localStorage.setItem("checkouts", productId);
+        })
+        
+    })
+</script>

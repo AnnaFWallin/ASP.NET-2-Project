@@ -1,0 +1,114 @@
+﻿<link rel="stylesheet" href="~/css/navbar-style.css" />
+
+<div class="container-fluid">
+
+    <div class="row" id="navbar-top">
+        <div class="col-2"></div>
+
+        <div class="col-1">
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                ENG
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">GER</a></li>
+                    <li><a class="dropdown-item" href="#">SWE</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                USD
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">EUR</a></li>
+                    <li><a class="dropdown-item" href="#">SEK</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-4 d-flex align-items-center">
+            <a asp-controller="Home" asp-action="Newsletter" class="text-decoration-none px-2 text-white hover-darkgray">Newsletter</a>
+            <a asp-controller="Home" asp-action="Contact" class="text-decoration-none px-2 text-white hover-darkgray">Contact us</a>
+            <a asp-controller="Home" asp-action="FAQs" class="text-decoration-none px-2 text-white hover-darkgray">FAQs</a>
+        </div>
+    </div>
+
+    <!-- navbar middle-->
+    <div class="row" id="navbar-middle">
+        <div class="col-2"></div>
+
+        <div class="col-2 d-flex justify-content-end">
+            <a asp-controller="Home" asp-action="Index"><img src="images/Kenakata-logo-white.png" class="img-fluid" /></a>
+        </div>
+
+       <div class="col-4 d-flex align-items-center">
+            <input type="text" class="form-control" id="searchbar">  
+            <button type="submit" class="btn" id="searchbar-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="col-4 d-flex align-items-center">
+            <a class="text-decoration-none text-darkblue" asp-controller="Auth" asp-action="Index"><i class="fa-solid fa-user text-darkblue"></i> My Account</a>
+            <a asp-controller="Wishlist" asp-action="Index"><i class="fa-solid fa-heart p-4 text-darkblue hover-gray"></i></a>
+            <a class="text-decoration-none text-darkblue" asp-controller="ShoppingCart" asp-action="Index" ><i class="fa-solid fa-bag-shopping p-1 text-darkblue"></i>$0.00</a>
+        </div>
+    </div>
+    
+
+    <!-- navbar bottom-->
+    <div class="row border border-top-5 pt-10" id="navbar-bottom">
+        <div class="col-2"></div>
+
+        <div class="col-6 d-flex">            
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white theme-bg" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-bars-staggered text-white"></i> 
+                    Browse Categories
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" asp-controller="ShopPage" asp-action="Category" asp-route-id="1">Men's</a></li>
+                    <li><a class="dropdown-item" asp-controller="ShopPage" asp-action="Category" asp-route-id="2">Women's</a></li>
+                    <li><a class="dropdown-item" asp-controller="ShopPage" asp-action="Category" asp-route-id="3">Kids</a></li>
+                    <li><a class="dropdown-item" asp-controller="ShopPage" asp-action="Category" asp-route-id="4">Hats</a></li>
+                    <li><a class="dropdown-item" asp-controller="ShopPage" asp-action="Category" asp-route-id="5">Sunglasses</a></li>
+                    <li><a class="dropdown-item" asp-controller="ShopPage" asp-action="Category" asp-route-id="6">Shoes</a></li>
+                    <li><a class="dropdown-item" asp-controller="ShopPage" asp-action="Category" asp-route-id="7">Watches</a></li>
+                </ul>
+            </div>
+            <a class="text-decoration-none p-2 text-darkblue mx-2"asp-controller="Home" asp-action="Index">Home</a>
+
+            <div class="dropdown show text-darkblue mx-2">
+                <a class="btn btn-secondary dropdown-toggle border border-0 bg-white" id="nav-link1" href="#" role="button"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Shop
+                </a>
+            </div>
+
+            <a class="text-decoration-none p-2 text-darkblue mx-2"asp-controller="ShopPage" asp-action="Index">Products</a>
+
+            <div class="dropdown show mx-2">
+                <a class="btn btn-secondary dropdown-toggle border border-0 bg-white" id="nav-link3" href="#" role="button"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories
+                </a>           
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" asp-controller="ShopPage" asp-action="Category" asp-route-id="1">Men's</a></li>
+                    <li><a class="dropdown-item" asp-controller="ShopPage" asp-action="Category" asp-route-id="2">Women's</a></li>
+                    <li><a class="dropdown-item" asp-controller="ShopPage" asp-action="Category" asp-route-id="3">Kids</a></li>
+                    <li><a class="dropdown-item" asp-controller="ShopPage" asp-action="Category" asp-route-id="4">Hats</a></li>
+                    <li><a class="dropdown-item" asp-controller="ShopPage" asp-action="Category" asp-route-id="5">Sunglasses</a></li>
+                    <li><a class="dropdown-item" asp-controller="ShopPage" asp-action="Category" asp-route-id="6">Shoes</a></li>
+                    <li><a class="dropdown-item" asp-controller="ShopPage" asp-action="Category" asp-route-id="7">Watches</a></li>
+                </ul>
+            </div>
+            <div class="dropdown show mx-2">
+                <a class="btn btn-secondary dropdown-toggle border border-0 bg-white" id="nav-link4" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Pages
+                </a>
+            </div>
+            <a class="text-decoration-none p-2 text-darkblue mx-2"asp-controller="" asp-action="">Blog</a>
+        </div>
+
+        <div class="col-2">
+            <a class="btn theme-bg text-white px-4" id="btn-special-offer">SPECIAL OFFER</a>
+        </div> 
+        <div class="col-2"></div>  
+    </div>

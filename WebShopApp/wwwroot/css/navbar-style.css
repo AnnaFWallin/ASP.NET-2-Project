@@ -1,0 +1,74 @@
+﻿body {
+}
+
+a:hover {
+    color: #E3E3E3;
+}
+
+.hover-gray:hover {
+    color: #60699c;
+}
+
+.hover-darkgray:hover {
+    color: #808080;
+}
+
+/*---------------NAVBAR*/
+
+#navbar-top {
+    background-color: #20D3C2
+}
+
+#navbar-middle {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+#navbar-bottom {
+    font-size: 1.2rem;
+}
+
+#searchbar {
+    height:50px; 
+    border-radius:30px 0px 0px 30px;
+}
+
+#searchbar-btn {
+    background-color: #20D3C2;
+    color: white;
+    border-radius: 0px 30px 30px 0px;
+    height: 50px;
+    width: 50px
+}
+
+#btn-special-offer {
+    border-radius: 35px;
+    float: right;
+    font-size: 1.2rem;
+}
+
+#nav-link1 {
+    color: #0E153D;
+    font-size: 1.2rem;
+}
+#nav-link2 {
+    color: #0E153D;
+    font-size: 1.2rem;
+}
+#nav-link3 {
+    color: #0E153D;
+    font-size: 1.2rem;
+}
+#nav-link4 {
+    color: #0E153D;
+    font-size: 1.2rem;
+}
+
+
+.text-darkblue {
+    color: #0E153D
+}
+
+.theme-bg {
+    background-color: #20D3C2
+}
