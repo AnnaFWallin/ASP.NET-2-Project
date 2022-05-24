@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebShopApp.Data;
 using WebShopApp.Interfaces;
+using WebShopApp.Repository;
 using WebShopApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,17 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddScoped<IProductService, ProductService>();
+//Repositories
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+//Session
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(x =>
+{
+    x.IdleTimeout = TimeSpan.FromDays(30);
+    x.Cookie.HttpOnly = true;
+    x.Cookie.IsEssential = true;
+    x.Cookie.Name = "ShoppingCart";
+});
 
 
 builder.Services.AddControllersWithViews();
@@ -53,6 +65,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

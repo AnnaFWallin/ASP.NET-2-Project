@@ -1,0 +1,43 @@
+﻿@model WebShopApp.Models.ShoppingCartModel
+<link rel="stylesheet" href="~/css/shoppingCart-style.css" />
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+<partial name="_Banner-ShoppingCart" />
+
+
+<section class="h-100 h-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-12">
+        <div class="card card-registration card-registration-2 border-0">
+          <div class="card-body p-0">
+            <div class="row pt-100">
+              <div class="col-lg-8">
+                <div class="p-2">
+                  
+
+                  <partial name="_ShoppingCartPartial" />                  
+
+                </div>
+              </div>
+
+              <div class="col-lg-4 bg-grey">
+                <div class="pb-3" id="cart-to-checkout-card">
+
+
+                    <partial name="_CartToCeckoutPartial" />
+                                                      
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

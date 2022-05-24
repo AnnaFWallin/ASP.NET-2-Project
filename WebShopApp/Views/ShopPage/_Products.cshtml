@@ -17,8 +17,8 @@
                                     <div class="more-info">
                                     <span>@item.PriceUSD EUR</span><br>
                                     <span>@item.Category.Name</span><br><br>
-                                    <button class="addtocart-button">Add To Cart</button><br>
-                                     <a asp-controller="ProductPage" asp-action="Index" asp-route-id="@item.Id" class="text-decoration-none text-white">Details</a>
+                                    <a class="btn addtocart-button" asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-id="@item.Id">Add To Cart</a><br>
+                                    <button class="addtowishlist-button">Add To Wishlist</button>
                                     </div>
                                 </div>
                             </div>

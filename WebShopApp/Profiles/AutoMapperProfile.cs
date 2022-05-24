@@ -16,7 +16,7 @@ namespace WebShopApp.Profiles
                 .ForMember(d => d.Price, option => option.MapFrom(s => s.PriceEUR))
                 .ForMember(d => d.DiscountPrice, option => option.MapFrom(s => s.PriceEUR - (s.DiscountPercentage * s.PriceEUR) ));
 
-
+            CreateMap<ProductEntity, ProductModel>();
         }
     }
 }
