@@ -1,116 +1,8 @@
 ﻿@model List<ArrivalModel>
-
-<style>
-    #newsArrivalCarousel .card-body:hover {
-        /*display: none;*/
-        top: 0;
-        max-height: inherit;
-    }
-
-    #newsArrivalCarousel .card {
-        background-color: transparent;
-    }
-
-        #newsArrivalCarousel .card > img {
-            position: relative;
-            z-index: -1;
-        }
-
-    #newsArrivalCarousel .card-body {
-        background: #0E153D;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        max-height: 51px;
-    }
-
-        #newsArrivalCarousel .card-body:hover .extra-info {
-            visibility: visible;
-        }
-
-        #newsArrivalCarousel .card-body .extra-info {
-            visibility: hidden;
-        }
-
-    #newsArrivalCarousel .custom-row {
-        margin: 0;
-    }
-
-    #newsArrivalCarousel .carousel-control-prev {
-        justify-content: left;
-        margin-left: -40px;
-    }
-
-    #newsArrivalCarousel .carousel-control-next {
-        justify-content: right;
-        margin-right: -40px;
-    }
+<link rel="stylesheet" href="~/css/section-new-arrival.css" />
 
 
-    #newsArrivalCarousel .carousel-control-prev-icon,
-    #newsArrivalCarousel .carousel-control-next-icon {
-        height: 64px;
-        width: 64px;
-        outline: #20D3C2;
-        background-size: 50%, 50%;
-        border-radius: 50%;
-        border: 1px solid #20D3C2;
-        background-color: #20D3C2;
-    }
-
-    #newsArrivalCarousel .price-text {
-        color: #20D3C2;
-        font-size: 24px;
-    }
-
-    #newsArrivalCarousel .circle-info {
-        height: 60px;
-        width: 60px;
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        border-radius: 30px;
-        font-size: 16px;
-        color: #FFF;
-    }
-
-    #newsArrivalCarousel .hot {
-        background-color: #FE4545;
-    }
-
-    #newsArrivalCarousel .sales {
-        background-color: #64CB83;
-    }
-
-    #newsArrivalCarousel a.disabled {
-        pointer-events: none;
-    }
-
-        #newsArrivalCarousel a.disabled > .carousel-control-prev-icon {
-            color: grey;
-            border: 1px solid grey;
-            background-color: grey;
-        }
-
-        #newsArrivalCarousel a.disabled > .carousel-control-next-icon {
-            color: grey;
-            border: 1px solid grey;
-            background-color: grey;
-        }
-
-    #newsArrivalCarousel .quick-menu {
-        position: absolute;
-        border: 1px solid #DDD;
-        background-color: #FFFFFF;
-        top: 10px;
-        right: 10px;
-        width: 47px;
-        border-radius: 25px;
-    }
-</style>
-
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <h2 class="text-center">NEW <span class="accent-title-color">ARRIVALS</span></h2>
     <p class="text-center">Check out our latest products from top fashion designers</p>
     <div id="newsArrivalCarousel" class="carousel">
@@ -128,8 +20,8 @@
                         @for (var j = 0; j < 3 && i + j < Model.Count; j++)
                         {
                             <div class="col-4 p-0 text-center">
-                                <div class="card">
-                                    <img src="https://via.placeholder.com/350x350" class="card-img-top" alt="...">
+                                <div class="card product-item" data-url="@Url.Action("Category", "ShopPage", new {id = Model[i+j].Id})">
+                                    <img src="@Model[i+j].ImgUrl" class="card-img-top col img-fluid" alt="" height="300">
 
 
                                     <div class="@(Model[i+j].DiscountPrice < @Model[i+j].Price ? "sales" : "d-none") circle-info hot d-flex flex-column">
@@ -156,9 +48,9 @@
                                                 <p class="price-text">@(@Model[i+j].DiscountPrice > 0 ? @Model[i+j].DiscountPrice: @Model[i+j].Price)</p>
 
                                                 <div class="quick-menu">
-                                                    <button type="button" class="btn btn-ligth add-to-cart" data-product-id="@Model[i+j].Id">
+                                                    <a class="btn btn-ligth add-to-cart" asp-controller="ShopPage" asp-action="AddToCart" asp-route-id="@Model[i+j].Id">
                                                         <i class="fa-solid fa-cart-plus"></i>
-                                                    </button>
+                                                    </a>
                                                     <br />
                                                 </div>
                                             </div>
@@ -188,14 +80,29 @@
     </div>
 </div>
 
-
 <script>
-    $(document).ready(function (){
-        $(".add-to-cart").on("click", function(){
-            var productId = $(this).data("product-id");
-            console.log(productId);
-            localStorage.setItem("checkouts", productId);
-        })
-        
-    })
+    $(document).ready(init);
+
+    function init(){
+        registerProductClickEvent();
+        registerAddToCartClickEvent();
+    }
+
+    function registerProductClickEvent(){
+        $(".product-item").on("click", onProductClicked)
+    }
+
+    function onProductClicked(){
+        const url = $(this).data("url");
+        window.location = url;
+        return false;
+    }
+
+    function registerAddToCartClickEvent(){
+        $(".add-to-cart").on("click", addToCartClicked);
+    }
+    function addToCartClicked(event){
+        event.stopPropagation();
+        return true;
+    }
 </script>

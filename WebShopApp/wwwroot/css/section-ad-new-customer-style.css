@@ -1,0 +1,18 @@
+﻿.shop-now-new-customer {
+    background-color: #20D3C2;
+    height: 100%;
+    min-width: 255px;
+    max-width: 255px;
+    min-height: 418px;
+}
+
+.card-shopping-ad-new-customer {
+    
+    background-color: #EEEEEE;
+}
+
+.shop-now-btn {
+    color: white;
+    background-color: #0E153D;
+    border-radius: 25px;
+}

@@ -1,0 +1,28 @@
+﻿.card-shopping-ad {
+    background-color: #EEEEEE;
+}
+
+.main-ad-text {
+    font-size: 60px;
+}
+
+.main-ad-partial-text {
+    font-size: 60px;
+    color: #20D3C2;
+}
+
+.ad-text {
+    font-size: 16px;
+    color: black;
+}
+
+.ad-text {
+    font-size: 16px;
+    color: black;
+}
+
+.shop-now-btn {
+    color: #20D3C2;
+    background-color: #FFFFFF;
+    border-radius: 25px;
+}

@@ -8,6 +8,7 @@
         public string Category { get; set; }
         public decimal DiscountPrice { get; set; }
         public bool HotSale { get; set; }
+        public string ImgUrl { get; set; }
 
     }
 }

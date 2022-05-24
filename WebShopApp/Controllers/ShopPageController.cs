@@ -45,5 +45,10 @@ namespace WebShopApp.Controllers
             return View("Index", ViewBag.Products = await _service.GetProductsByPrice(id, id2));
         }
 
+        public async Task<IActionResult> AddToCart(int id)
+        {
+            return View("Index");
+        }
+
     }
 }
