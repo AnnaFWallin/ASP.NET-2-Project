@@ -20,7 +20,7 @@ builder.Services.AddDbContext<ApplicationIdDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+    .AddEntityFrameworkStores<ApplicationIdDbContext>();
 builder.Services.AddScoped<IProductService, ProductService>();
 //Repositories
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
