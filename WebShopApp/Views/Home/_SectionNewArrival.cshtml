@@ -48,7 +48,7 @@
                                                 <p class="price-text">@(@Model[i+j].DiscountPrice > 0 ? @Model[i+j].DiscountPrice: @Model[i+j].Price)</p>
 
                                                 <div class="quick-menu">
-                                                    <a class="btn btn-ligth add-to-cart" asp-controller="ShopPage" asp-action="AddToCart" asp-route-id="@Model[i+j].Id">
+                                                    <a class="btn btn-ligth add-to-cart" asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-id="@Model[i+j].Id">
                                                         <i class="fa-solid fa-cart-plus"></i>
                                                     </a>
                                                     <br />

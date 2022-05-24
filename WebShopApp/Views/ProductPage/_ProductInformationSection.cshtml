@@ -1,6 +1,6 @@
 ﻿<div class="product-info">
     <section class="images">
-        <img class="big-picture" src="@Url.Content("~/images/shoesdummydeluxe.png")">
+        <img class="big-picture" src="@ViewBag.Product.ImgUrl">
 
     </section>
     <div class="text-section">
@@ -14,7 +14,7 @@
             <img class="instock-picture" src="@Url.Content("~/images/instock.png")">
         }
         <br /><br />
-        <button class="pp-addtocart">Add to cart</button>
+        <a class="btn pp-addtocart" asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-id="@ViewBag.Product.Id">Add to cart</a>
         <div class="mini-pictures">
             <img class="mini-picture" src="@Url.Content("~/images/color.png")">
             <img class="mini-picture" src="@Url.Content("~/images/shuffle.png")">
