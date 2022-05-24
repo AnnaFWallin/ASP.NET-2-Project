@@ -3,11 +3,14 @@
 
 .banner-shoppingCart {
     background-color: #AAAAAA;
-    color: #20D3C2;
+    color: #FFFFFF;
     padding-top: 80px;
     padding-bottom: 80px;
     font-size: 28px;
     font-weight: bold;
+}
+cart-banner_span {
+    color: #20D3C2;
 }
 
 .cart-titel {
@@ -58,5 +61,7 @@
 }
 
 #cart-to-checkout-card {
-    border: dotted #0E153D;
+    border: dashed #0E153D;
+    border-top: none;
+    border-radius: 10px;
 }

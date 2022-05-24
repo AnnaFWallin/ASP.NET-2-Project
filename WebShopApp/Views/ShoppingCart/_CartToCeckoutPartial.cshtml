@@ -1,0 +1,35 @@
+﻿@model WebShopApp.Models.ShoppingCartModel
+
+
+<div class="d-flex justify-content-center py-3" id="title-cartTotals">
+  <h4 class="">CART TOTALS</h4>
+</div>
+                    
+<div class="m-3">
+    <div class="d-flex justify-content-between mb-6">
+       <p class="bold">Subtotal</p>
+       <p>$@Model.TotalPrice</p>
+    </div>
+    <hr />
+                    
+    <div class="d-flex justify-content-between mb-4">
+      <p class="bold">Shipping</p>
+      <p>Flat rate: <span class="theme-color bold">$20.00</span></p>
+    </div>
+                    
+    <hr />
+    <div class="d-flex justify-content-between mb-4">
+      <p class="bold">TOTAL</p>
+      @{
+          var pricePlusShipping = @Model.TotalPrice + 20;
+
+          if(pricePlusShipping.Equals(20))
+          {
+             pricePlusShipping = 0;
+          }
+       }
+      <p>$@pricePlusShipping</p>
+</div>
+
+<a asp-controller="Checkout" asp-action="Index"
+class="btn theme-bg text-white px-4 w-100 py-3" id="btn-to-checkout">PROCEEED TO CHECKOUT</a>  
