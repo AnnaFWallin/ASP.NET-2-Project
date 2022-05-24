@@ -13,7 +13,7 @@ namespace WebShopApp.Tests
     {
 
         [Fact]
-        public async Task ShopPageController_Should_Return_ViewResult()  //Olivias test
+        public async Task ShopPageController_Should_Return_ViewResult()
         {
             // Arrange 
             var mockProductService = new Mock<IProductService>();

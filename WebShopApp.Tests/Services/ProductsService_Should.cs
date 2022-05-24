@@ -12,7 +12,7 @@ namespace WebShopApp.Tests.Services
     public class ProductsService_Should
     {
         [Fact]
-        public async Task ProductService_Should_Return_Type_Products() //Olivias test
+        public async Task ProductService_Should_Return_Type_Products()
         {
             // Arrange
             var sut = new Mock<IProductService>();
@@ -25,7 +25,7 @@ namespace WebShopApp.Tests.Services
         }
 
         [Fact]
-        public async Task GetAllProducts_Returns_ListOfProducts()  //Olivias test
+        public async Task GetAllProducts_Returns_ListOfProducts()
         {
             // Arrange
             var sut = new Mock<IProductService>();
