@@ -3,17 +3,17 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System.Threading.Tasks;
 using WebShopApp.Controllers;
-using WebShopApp.Services;
+using WebShopApp.Interfaces;
 using WebShopApp.Tests.Fixtures;
 using Xunit;
 
 namespace WebShopApp.Tests
 {
-    public class ProductsController_Should
+    public class ShopPageController_Should
     {
 
         [Fact]
-        public async Task ProductsController_Should_Return_ViewResult()
+        public async Task ProductsController_Should_Return_ViewResult() //Olivias test
         {
             // Arrange 
             var mockProductService = new Mock<IProductService>();

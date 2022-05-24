@@ -1,0 +1,22 @@
+﻿@model WebShopApp.Models.SignInModel
+
+<h4 class="">LOGIN</h4>
+<form asp-action="Login" >
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+<div>
+    <p>@ViewData["ErrorMessage"]</p>
+</div>
+
+<p class="auth-error">@ViewData["LoginErrorMessage"]</p>
+
+<label asp-for="UserName" class="form-label">Username or Email</label><br />
+<input asp-for="UserName" class="form-controll w-100"> 
+<span asp-validation-for="UserName" class="form-text text-danger"></span><br />
+            
+<label asp-for="Password" class="form-label">Password</label><br />
+<input asp-for="Password" class="form-controll w-100">
+<span asp-validation-for="Password" class="form-text text-danger"></span>
+<button type="submit" class="btn w-100 mt-3">LOG IN</button>
+</form>
