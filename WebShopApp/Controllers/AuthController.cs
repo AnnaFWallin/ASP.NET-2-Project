@@ -49,16 +49,6 @@ namespace WebShopApp.Controllers
             return RedirectToAction("Index", "Auth");
         }
 
-        public IActionResult Register()
-        {
-            if(_signInManager.IsSignedIn(User))
-                return RedirectToAction("Index", "Auth");
-
-            var form = new RegisterFormModel();
-
-            return View(form);
-        }
-
         [HttpPost]
         public async Task<IActionResult> Register(RegisterFormModel form)
         { 

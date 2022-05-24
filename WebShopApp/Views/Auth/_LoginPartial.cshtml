@@ -4,15 +4,6 @@
 <form asp-action="Login" >
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-@*@if(ViewBag.Error != null)
-{   
-    <ul>
-    foreach(var error in ViewBag.Error)
-    {
-        <li>@error</li>
-    }
-    </ul>
-}*@
 
 <div>
     <p>@ViewData["ErrorMessage"]</p>
