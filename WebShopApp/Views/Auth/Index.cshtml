@@ -1,0 +1,42 @@
+﻿<link rel="stylesheet" href="~/css/Auth-style.css" />
+@{
+    ViewData["Title"] = "My Account";
+}
+
+ <partial name="_MyAccount-Banner" />
+ 
+ @if(SignInManager.IsSignedIn(User)){  
+    
+
+     <div class="container mt-8 mb-8">
+     <div class="row">
+
+         <div class="col-2">            
+        </div>
+
+        <div class="form-box col-4 mt-8 bg-grey">
+            <h4>My Orders</h4>
+        </div>
+
+        <div class="form-box col-4 mt-8 bg-grey">
+            <h4>My Wishlist</h4>
+        </div>
+
+        <div class="col-2">            
+        </div>
+
+     </div>
+     
+     <div class="row">
+         <div class="col-10"></div>
+         <div class="col-2">
+                <a class="btn nav-link fs-5 bg-theme text-white" id="btn-logout" asp-controller="Auth" asp-action="LogOut">Log out</a>
+         </div>
+     </div>
+ </div>
+
+}
+else{
+    
+    <partial name="_RegisterOrLogIn" />
+}
